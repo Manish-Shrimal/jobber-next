@@ -4,7 +4,8 @@ import APNavBar from "@/app/(admin-side)/admin/Components/APNavbar";
 import APSidebar from "@/app/(admin-side)/admin/Components/APSidebar";
 import Typography from "@mui/material/Typography";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
-import Link from "@mui/material/Link";
+import Link from "next/link"
+
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import axios from "axios";
 import BaseApi from "@/app/(api)/BaseApi";
@@ -515,16 +516,18 @@ const Page = () => {
                   separator={<NavigateNextIcon fontSize="small" />}
                 >
                   <Link
+                   href="/admin/dashboard"
                     underline="hover"
                     color="inherit"
-                    onClick={() => router.push("/admin/dashboard")}
+             
                   >
                     Dashboard
                   </Link>
                   <Link
+                   href="/admin/newsletters"
                     underline="hover"
                     color="inherit"
-                    onClick={() => router.push("/admin/newsletters")}
+                  
                   >
                     Newsletter
                   </Link>

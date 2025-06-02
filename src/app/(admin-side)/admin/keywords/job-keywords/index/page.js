@@ -524,7 +524,7 @@ const Page = () => {
                   >
                     Dashboard
                   </Link>
-                  <Link href="" underline="hover" color="inherit">
+                  <Link href="/admin/keywords/job-keywords/index" underline="hover" color="inherit">
                     Job Keyword
                   </Link>
 

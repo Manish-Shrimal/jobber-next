@@ -572,16 +572,18 @@ const Page = () => {
                   separator={<NavigateNextIcon fontSize="small" />}
                 >
                   <Link
+                  href="/admin/categories"
                     underline="hover"
                     color="inherit"
-                    onClick={() => router.push("/admin/dashboard")}
+                  
                   >
                     Dashboard
                   </Link>
                   <Link
+                  href="/admin/categories/index"
                     underline="hover"
                     color="inherit"
-                    onClick={() => router.push("")}
+                    
                   >
                     Categories
                   </Link>

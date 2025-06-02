@@ -571,7 +571,7 @@ const Page = () => {
                   >
                     Dashboard
                   </Link>
-                  <Link href="" underline="hover" color="inherit">
+                  <Link href="/admin/designation" underline="hover" color="inherit">
                     Designations
                   </Link>
 

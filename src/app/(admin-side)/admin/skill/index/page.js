@@ -551,7 +551,7 @@ const Page = () => {
                   >
                     Dashboard
                   </Link>
-                  <Link href="" underline="hover" color="inherit">
+                  <Link href="/admin/skill/index" underline="hover" color="inherit">
                     Skills
                   </Link>
 

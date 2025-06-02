@@ -181,9 +181,11 @@ const APChangePaymentDetail = () => {
                   separator={<NavigateNextIcon fontSize="small" />}
                 >
                   <Link
+                  href="/admin/dashboard"
+
                     underline="hover"
                     color="inherit"
-                    onClick={() => router.push("/admin/dashboard")}
+             
                   >
                     Dashboard
                   </Link>

@@ -591,7 +591,7 @@ const Page = () => {
                   >
                     Dashboard
                   </Link>
-                  <Link underline="hover" color="inherit">
+                  <Link href="/admin/currencies" underline="hover" color="inherit">
                     Currency
                   </Link>
 

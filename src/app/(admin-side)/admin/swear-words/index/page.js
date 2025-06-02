@@ -9,20 +9,11 @@ import axios from "axios";
 import BaseApi from "@/app/(api)/BaseApi";
 import ApiKey from "@/app/(api)/ApiKey";
 import Swal from "sweetalert2";
-// import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import CreateIcon from "@mui/icons-material/Create";
 import DeleteIcon from "@mui/icons-material/Delete";
-// import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
-// import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-// import BlockIcon from "@mui/icons-material/Block";
-// import CheckIcon from "@mui/icons-material/Check";
 import Tooltip from "@mui/material/Tooltip";
-// import AddIcon from "@mui/icons-material/Add";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
-// import VerifiedIcon from '@mui/icons-material/Verified';
-// import Box from "@mui/material/Box";
-// import Modal from "@mui/material/Modal";
 import Cookies from "js-cookie";
 import APFooter from "@/app/(admin-side)/admin/Components/APFooter";
 import Link from "next/link";
@@ -549,10 +540,9 @@ const Page = () => {
                     Dashboard
                   </Link>
                   <Link
-                  href=""
+                  href="/admin/swear-words/index"
                     underline="hover"
                     color="inherit"
-                    onClick={() => router.push("")}
                   >
                     Swear Words
                   </Link>

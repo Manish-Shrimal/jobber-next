@@ -557,23 +557,23 @@ const Page = () => {
                   separator={<NavigateNextIcon fontSize="small" />}
                 >
                   <Link
+                  href="/admin/dashboard"
                     underline="hover"
                     color="inherit"
-                    onClick={() => router.push("/admin/dashboard")}
                   >
                     Dashboard
                   </Link>
                   <Link
+                    href="/admin/course/index"
                     underline="hover"
                     color="inherit"
-                    onClick={() => router.push("/admin/course/index")}
                   >
                     Courses
                   </Link>
                   <Link
+                    href={`/admin/course/specialization/${dataPerPage.cateogory_slug}`}
                     underline="hover"
                     color="inherit"
-                    onClick={() => router.push("")}
                   >
                     {dataPerPage.cateogory_name}
                   </Link>

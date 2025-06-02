@@ -541,13 +541,13 @@ const Page = () => {
                   separator={<NavigateNextIcon fontSize="small" />}
                 >
                   <Link
-                    to="/admin/admins/dashboard"
+                    to="/admin/dashboard"
                     underline="hover"
                     color="inherit"
                   >
                     Dashboard
                   </Link>
-                  <Link to="" underline="hover" color="inherit">
+                  <Link to="/admin/course/index" underline="hover" color="inherit">
                     Courses
                   </Link>
 

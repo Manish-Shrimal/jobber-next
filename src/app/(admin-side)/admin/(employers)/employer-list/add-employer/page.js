@@ -6,12 +6,12 @@ import APNavBar from "@/app/(admin-side)/admin/Components/APNavbar";
 import APSidebar from "@/app/(admin-side)/admin/Components/APSidebar";
 import Typography from "@mui/material/Typography";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
-// import Link from "@mui/material/Link";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import BaseApi from "@/app/(api)/BaseApi";
 import ApiKey from "@/app/(api)/ApiKey";
 import Swal from "sweetalert2";
 import axios from "axios";
+import Link  from "next/link";
 // import { useNavigate } from "react-router-dom";
 import JoditEditor from "jodit-react";
 import { useRef } from "react";
@@ -23,7 +23,7 @@ import Image from "next/image";
 import "react-quill/dist/quill.snow.css"; // import styles
 import APFooter from "@/app/(admin-side)/admin/Components/APFooter";
 import { useRouter } from "next/navigation";
-import Link  from "next/link";
+
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 const Page = () => {
@@ -538,18 +538,17 @@ const Page = () => {
                   separator={<NavigateNextIcon fontSize="small" />}
                 >
                   <Link
-                  href=""
+                  href="/admin/dashboard"
                     underline="hover"
                     color="inherit"
-                    onClick={() => router.push("/admin/dashboard")}
+                  
                   >
                     Dashboard
                   </Link>
                   <Link
-                  href=""
+                   href="/admin/users"
                     underline="hover"
                     color="inherit"
-                    onClick={() => router.push("/admin/users")}
                   >
                     Employers
                   </Link>
