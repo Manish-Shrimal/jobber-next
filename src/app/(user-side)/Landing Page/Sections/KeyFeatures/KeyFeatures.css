@@ -1,0 +1,114 @@
+
+  
+  .key-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: #fff;
+    min-height: 200px;
+    padding: 50px 0;
+  }
+  
+  .step-card {
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    padding: 0px 12px;
+    height: 110px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 7px;
+    width: auto;
+  }
+  
+  .step-card__icon {
+    width: 80px; /* Default width, overridden by prop */
+    height: 40px;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .step-card__content {
+    flex: 1;
+  }
+  
+  .step-card__title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #3A404D;
+    margin-bottom: 2px;
+  }
+  
+  .step-card__description {
+    font-size: 16px;
+    font-weight: 400;
+    color: #5C5C5C;
+    line-height: 24px;
+    margin-bottom: 0!important;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .key-features {
+      grid-template-columns: 1fr;
+      padding: 20px;
+      margin-bottom: 45px;
+      margin-top: 20px;
+    }
+  
+    .step-card {
+      height: auto;
+      padding: 30px;
+    }
+  
+    .step-card__title {
+      font-size: 20px;
+    }
+  
+    .step-card__description {
+      font-size: 16px;
+    }
+    .step-card {
+      flex-direction: column;
+      text-align: center;
+      height: auto;
+      /* padding: 10px; */
+  }
+  .step-card__icon {
+    margin-right: 0;
+    margin-bottom: 30px;
+}
+  }
+  
+  @media (max-width: 480px) {
+    .key-features {
+      gap: 15px;
+      padding: 10px;
+    }
+  
+    .step-card {
+      flex-direction: column;
+      text-align: center;
+      height: auto;
+      padding: 10px;
+    }
+  
+    .step-card__icon {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+    .step-card {
+      flex-direction: column;
+      text-align: center;
+      height: auto;
+      padding: 30px;
+  }
+  .step-card__icon {
+    margin-right: 0;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+  }
