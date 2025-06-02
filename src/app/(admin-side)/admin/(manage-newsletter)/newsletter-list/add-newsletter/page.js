@@ -11,13 +11,17 @@ import ApiKey from "@/app/(api)/ApiKey";
 import Swal from "sweetalert2";
 import axios from "axios";
 // import { useNavigate } from "react-router-dom";
-import JoditEditor from "jodit-react";
+// import JoditEditor from "jodit-react";
 import { useRef } from "react";
 import Cookies from "js-cookie";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css"; // import styles
+// import ReactQuill from "react-quill";
+// import "react-quill/dist/quill.snow.css"; // import styles
 import APFooter from "@/app/(admin-side)/admin/Components/APFooter";
 import { useRouter } from "next/navigation";
+import dynamic from "next/dynamic";
+
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+const JoditEditor = dynamic(() => import("jodit-react"), { ssr: false });
 
 const Page = () => {
   const editor = useRef(null);

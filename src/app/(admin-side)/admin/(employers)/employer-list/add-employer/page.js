@@ -12,8 +12,7 @@ import ApiKey from "@/app/(api)/ApiKey";
 import Swal from "sweetalert2";
 import axios from "axios";
 import Link  from "next/link";
-// import { useNavigate } from "react-router-dom";
-import JoditEditor from "jodit-react";
+// import JoditEditor from "jodit-react";
 import { useRef } from "react";
 import Cookies from "js-cookie";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -443,21 +442,44 @@ const Page = () => {
   const [autocompleteService, setAutocompleteService] = useState(null);
   const [suggestions, setSuggestions] = useState([]);
 
-  useEffect(() => {
-    // Load Google Maps AutocompleteService after component mounts
-    const script = document.createElement("script");
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${mapKey}&libraries=places`;
-    script.onload = () => {
-      setAutocompleteService(
-        new window.google.maps.places.AutocompleteService()
-      );
-      console.log(autocompleteService);
-    };
-    document.body.appendChild(script);
+  // useEffect(() => {
+  //   // Load Google Maps AutocompleteService after component mounts
+  //   const script = document.createElement("script");
+  //   script.src = `https://maps.googleapis.com/maps/api/js?key=${mapKey}&libraries=places`;
+  //   script.onload = () => {
+  //     setAutocompleteService(
+  //       new window.google.maps.places.AutocompleteService()
+  //     );
+  //     console.log(autocompleteService);
+  //   };
+  //   document.body.appendChild(script);
 
-    return () => {
-      document.body.removeChild(script);
-    };
+  //   return () => {
+  //     document.body.removeChild(script);
+  //   };
+  // }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const script = document.createElement("script");
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${mapKey}&libraries=places`;
+      script.async = true;
+      script.onload = () => {
+        setAutocompleteService(
+          new window.google.maps.places.AutocompleteService()
+        );
+      };
+      script.onerror = () => {
+        console.error("Failed to load Google Maps API");
+      };
+      document.body.appendChild(script);
+  
+      return () => {
+        if (document.body.contains(script)) {
+          document.body.removeChild(script);
+        }
+      };
+    }
   }, []);
 
   const handleLocationChange = (e) => {
@@ -511,13 +533,7 @@ const Page = () => {
     // console.log(filterItem);
   };
 
-  useEffect(() => {
- 
-      // TokenKey is present, fetch data or perform other actions
-      // getData();
-      window.scrollTo(0, 0);
-    
-  }, [tokenKey]);
+
 
   return (
     <>
