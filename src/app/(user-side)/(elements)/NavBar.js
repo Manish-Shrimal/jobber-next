@@ -974,7 +974,7 @@ const NavBar = () => {
 </NavDropdown> */}
                 <div className="dropdown">
                   <button
-                    className="btn navButton1 dropdown-toggle"
+                    className="btn  dropdown-toggle"
                     type="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
@@ -985,7 +985,7 @@ const NavBar = () => {
                       border: hoverLoginColor ? secondaryColor : primaryColor,
                       fontWeight: "500",
                       fontSize: "16px",
-                      padding: "8px 15px",
+                      padding: "9px 25px",
                       borderRadius: "10px",
                       marginLeft: "15px",
                       minWidth: "115px",
@@ -999,7 +999,7 @@ const NavBar = () => {
                   <ul className="dropdown-menu">
                     <li>
                       <Link
-                        href="/user/employerlogin"
+                        href="/user/employer-login"
                         className="dropdown-item"
                       >
                         {t("navHeaders.employerLogin")}
@@ -1007,7 +1007,7 @@ const NavBar = () => {
                     </li>
                     <li>
                       <Link
-                        href="/user/jobseekerlogin"
+                        href="/user/jobseeker-login"
                         className="dropdown-item"
                       >
                         {t("navHeaders.jobseekerLogin")}

@@ -21,9 +21,9 @@ const Page = () => {
   const [t] = useTranslation("common");
 
   // Initial filter state
-  const initialKeyword = sessionStorage.getItem("keywordTitle") || slug || "";
-  const initialCategory = sessionStorage.getItem("catId") || "";
-  const initialSkill = localStorage.getItem("skillId") || "";
+  const initialKeyword = Cookies.get("keywordTitle") || slug || "";
+  const initialCategory = Cookies.get("catId") || "";
+  const initialSkill = Cookies.get("skillId") || "";
 
   const [filterItem, setFilterItem] = useState({
     keyword: initialKeyword,
@@ -246,7 +246,7 @@ const Page = () => {
 
 //   const Location = useLocation();
 
-  const prevLocationRef = useRef(Location.pathname);
+const prevLocationRef = useRef(router.pathname);
 
   useEffect(() => {
     return () => {
@@ -256,12 +256,15 @@ const Page = () => {
 
   useEffect(() => {
     // On route change
-    if (Location.pathname !== prevLocationRef.current) {
-      sessionStorage.clear();
-      localStorage.removeItem("skillId");
+    if (router.pathname !== prevLocationRef.current) {
+      // sessionStorage.clear();
+      // localStorage.removeItem("skillId");
+      Cookies.remove("keywordTitle");
+      Cookies.remove("catId");
+      Cookies.remove("skillId");
     }
-    prevLocationRef.current = Location.pathname;
-  }, [Location]);
+    prevLocationRef.current = router.pathname;
+  }, [router.pathname]);
   
 
   // Memoized current jobs

@@ -72,7 +72,8 @@ const Page = () => {
   let primaryColor = Cookies.get("primaryColor");
   let secondaryColor = Cookies.get("secondaryColor");
   let siteLogo = Cookies.get("siteLogo");
-  let captchaKey = Cookies.get("captchaKey");
+  // let captchaKey = Cookies.get("captchaKey");
+   const captchaKey = Cookies.get("captchaKey") || "";
   let siteTitle = Cookies.get("siteTitle");
 
   // const getData = async () => {
@@ -195,7 +196,7 @@ const Page = () => {
               icon: "success",
               confirmButtonText: t("employerRegister.close"),
             });
-            navigate("/user/employerlogin");
+            router.push("/user/employerlogin");
             setIsCaptchaVerified(false);
           } else {
             Swal.fire({
@@ -274,7 +275,7 @@ const Page = () => {
       (tokenClient && userType === "recruiter") ||
       (tokenClient && userType === "candidate")
     ) {
-      navigate("/");
+      router.push("/");
       const Toast = Swal.mixin({
         toast: true,
         position: "top-end",

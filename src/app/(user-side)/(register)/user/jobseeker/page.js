@@ -74,7 +74,8 @@ const Page = () => {
   let primaryColor = Cookies.get("primaryColor");
   let secondaryColor = Cookies.get("secondaryColor");
   let siteLogo = Cookies.get("siteLogo");
-  let captchaKey = Cookies.get("captchaKey");
+  // let captchaKey = Cookies.get("captchaKey");
+   const captchaKey = Cookies.get("captchaKey") || "";
   let siteTitle = Cookies.get("siteTitle");
 
   // const getSiteData = async () => {
@@ -216,7 +217,6 @@ const Page = () => {
             BaseApi + "/users/registration",
             updatedProfile
           );
-          console.log(response.data);
           let status = response.data.status;
 
           if (status === 200) {
@@ -226,7 +226,7 @@ const Page = () => {
               confirmButtonText: t("jobseekerRegister.close"),
             });
             setIsCaptchaVerified(false);
-            navigate("/user/jobseekerlogin");
+            router.push("/user/jobseekerlogin");
           } else {
             Swal.fire({
               title: response.data.message,
@@ -307,7 +307,7 @@ const Page = () => {
       (tokenClient && userType === "recruiter") ||
       (tokenClient && userType === "candidate")
     ) {
-      navigate("/");
+    router.push("/");
       const Toast = Swal.mixin({
         toast: true,
         position: "top-end",

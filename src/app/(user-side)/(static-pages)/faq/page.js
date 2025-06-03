@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "@/app/(user-side)/(elements)/NavBar";
 import Footer from "@/app/(user-side)/(elements)/Footer";
-// import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import BaseApi from "@/app/(api)/BaseApi";
 import Swal from "sweetalert2";
@@ -213,7 +212,13 @@ const Page = () => {
                       </h3>
                     </div>
 
-                    <img className="mt-3" src="/Images/Faq.png" alt="" />
+                  <Image
+  className="mt-3"
+  src="/Images/Faq.png"
+  alt="FAQ icon"
+  width={40}   // Replace with actual image size
+  height={40}
+/>
                   </div>
                   <div className="col-lg-7">
                     <div className="upperPart">

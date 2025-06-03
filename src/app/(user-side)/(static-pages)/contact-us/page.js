@@ -10,7 +10,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import Swal from "sweetalert2";
 import Cookies from "js-cookie";
 import { useTranslation } from "react-i18next";
-
+import Image from 'next/image';
 const Page = () => {
   const [contactData, setContactData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -202,7 +202,12 @@ const Page = () => {
                         <div className="row">
                           <div className="ContactDetails col-sm-12">
                             <i>
-                              <img src="/Images/email-icon.png" alt="" />
+                              <Image
+  src="/Images/email-icon.png"
+  alt="Email icon"
+  width={24}  // Replace with actual size
+  height={24}
+/>
                             </i>
                             <div className="ContactDetailsBx">
                               <strong>{t("contactPage.contactEmail")}:</strong>
@@ -211,7 +216,12 @@ const Page = () => {
                           </div>
                           <div className="ContactDetails col-sm-12">
                             <i>
-                              <img src="/Images/call-icon.png" alt="" />
+                              <Image
+  src="/Images/call-icon.png"
+  alt="Call icon"
+  width={24}   // Adjust width
+  height={24}  // Adjust height
+/>
                             </i>
                             <div className="ContactDetailsBx">
                               <strong>{t("contactPage.contactPhone")}: </strong>
@@ -220,7 +230,12 @@ const Page = () => {
                           </div>
                           <div className="ContactDetails col-sm-12">
                             <i>
-                              <img src="/Images/location-icon.png" alt="" />
+                              <Image
+  src="/Images/location-icon.png"
+  alt="Location icon"
+  width={24}    // Adjust size as needed
+  height={24}
+/>
                             </i>
                             <div className="ContactDetailsBx">
                               <strong>{t("contactPage.contactLocation")}:</strong>{" "}

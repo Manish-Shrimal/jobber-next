@@ -480,7 +480,7 @@ const Page = () => {
                             </div>
                             <div className="cardLower">
                               <div className="cardLowerImg">
-                                <Image width={100} height={100} src="/Images/adminpanel/new.png" />
+                                <Image width={100} height={100}  alt="New icon for admin panel"  src="/Images/adminpanel/new.png" />
                               </div>
                               {/* <div className="cardLowerTxt">
                           <p>
@@ -511,7 +511,7 @@ const Page = () => {
                             </div>
                             <div className="cardLower">
                               <div className="cardLowerImg">
-                                <Image width={100} height={100} src="/Images/adminpanel/Jobseeker.png" />
+                                <Image width={100} height={100}  alt="Jobseeker icon" src="/Images/adminpanel/Jobseeker.png" />
                               </div>
                               {/* <div className="cardLowerTxt">
                           <p>
@@ -542,7 +542,7 @@ const Page = () => {
                             </div>
                             <div className="cardLower">
                               <div className="cardLowerImg">
-                                <Image width={100} height={100} src="/Images/adminpanel/Jobs.png" />
+                                <Image width={100} height={100}  alt="Jobs icon" src="/Images/adminpanel/Jobs.png" />
                               </div>
                               {/* <div className="cardLowerTxt">
                           <p>
@@ -573,7 +573,7 @@ const Page = () => {
                             </div>
                             <div className="cardLower">
                               <div className="cardLowerImg">
-                                <Image width={100} height={100} src="/Images/adminpanel/Skills.png" />
+                                <Image width={100} height={100}  alt="Skill icon" src="/Images/adminpanel/Skills.png" />
                               </div>
                               {/* <div className="cardLowerTxt">
                           <p>

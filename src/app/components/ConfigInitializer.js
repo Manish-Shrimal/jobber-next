@@ -42,7 +42,7 @@ import BaseApi from '@/app/(api)/BaseApi';
 
 export default function ConfigInitializer() {
   const setConfig = useSetRecoilState(configState);
-  console.log(setConfig)
+  // console.log(setConfig, 'ConfigInitializer setConfig');
 
   useEffect(() => {
     async function fetchConfig() {
@@ -52,7 +52,8 @@ export default function ConfigInitializer() {
           throw new Error(`HTTP error! status: ${res.status}`);
         }
         const data = await res.json();
-        setConfig(data);
+        // console.log(data.response, 'ConfigInitializer data');
+        setConfig(data.response);
       } catch (err) {
         console.error('Failed to fetch config:', err);
       }
