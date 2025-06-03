@@ -1,5 +1,4 @@
-
-"use client"
+"use client";
 import React, { useEffect, useState } from "react";
 import NavBar from "@/app/(user-side)/(elements)/NavBar";
 import Footer from "@/app/(user-side)/(elements)/Footer";
@@ -11,6 +10,8 @@ import ReCAPTCHA from "react-google-recaptcha";
 import Cookies from "js-cookie";
 import HTMLReactParser from "html-react-parser";
 import { useTranslation } from "react-i18next";
+import { useRecoilValue } from "recoil";
+import { configState } from "@/app/lib/atoms/ConfigAtom";
 
 const Page = () => {
   const [formData, setFormData] = useState({
@@ -32,9 +33,11 @@ const Page = () => {
   const [t, i18n] = useTranslation("common");
   const currentLanguage = Cookies.get("selectedLanguage") || "en";
 
-  let primaryColor = Cookies.get("primaryColor");
-  let secondaryColor = Cookies.get("secondaryColor");
-  let captchaKey = Cookies.get("captchaKey");
+  const config = useRecoilValue(configState);
+  const primaryColor = config.primary_color || "#007bff";
+  const secondaryColor = config.secondary_color || "#005a9c";
+  const siteLogo = config.site_logo || "/Images/logo.png";
+  const captchaKey = config.captcha_public_key;
 
   const [hoverColor, setHoverColor] = useState(false);
 

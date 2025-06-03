@@ -1,4 +1,3 @@
-
 // "use client"
 // import React, { useEffect, useState } from "react";
 // import NavBar from "@/app/(user-side)/(elements)/NavBar";
@@ -321,14 +320,6 @@
 
 // export default Page;
 
-
-
-
-
-
-
-
-
 "use client";
 import React, { useEffect, useState } from "react";
 import NavBar from "@/app/(user-side)/(elements)/NavBar";
@@ -341,6 +332,8 @@ import ReCAPTCHA from "react-google-recaptcha";
 import Cookies from "js-cookie";
 import HTMLReactParser from "html-react-parser";
 import { useTranslation } from "react-i18next";
+import { useRecoilValue } from "recoil";
+import { configState } from "@/app/lib/atoms/ConfigAtom";
 
 const Page = () => {
   const [formData, setFormData] = useState({
@@ -360,10 +353,13 @@ const Page = () => {
   const [t] = useTranslation("common");
 
   const currentLanguage = Cookies.get("selectedLanguage") || "en";
-  const primaryColor = Cookies.get("primaryColor") || "#007bff";
-  const secondaryColor = Cookies.get("secondaryColor") || "#0056b3";
   const recaptchaLanguage = currentLanguage;
-  const captchaKey = Cookies.get("captchaKey") || "6Ld8bV8nAAAAAEp24xWlKsVFhVDYlBctFF50MI1x";
+
+  const config = useRecoilValue(configState);
+  const primaryColor = config.primary_color || "#007bff";
+  const secondaryColor = config.secondary_color || "#005a9c";
+  const siteLogo = config.site_logo || "/Images/logo.png";
+  const captchaKey = config.captcha_public_key;
 
   useEffect(() => {
     setRecaptchaKey(generateRecaptchaKey());
@@ -410,10 +406,12 @@ const Page = () => {
 
     if (!formData.name) newErrors.name = t("messageForm.nameRequired");
     if (!formData.email) newErrors.email = t("messageForm.emailRequired");
-    else if (!isValidEmail(formData.email)) newErrors.email = t("messageForm.invalidEmail");
+    else if (!isValidEmail(formData.email))
+      newErrors.email = t("messageForm.invalidEmail");
     if (!formData.subject) newErrors.subject = t("messageForm.subjectRequired");
     if (!formData.message) newErrors.message = t("messageForm.messageRequired");
-    if (!isCaptchaVerified) newErrors.captcha = t("messageForm.captchaRequired");
+    if (!isCaptchaVerified)
+      newErrors.captcha = t("messageForm.captchaRequired");
 
     return newErrors;
   };
@@ -425,7 +423,10 @@ const Page = () => {
 
     if (Object.keys(validationErrors).length === 0 && isCaptchaVerified) {
       try {
-        const response = await axios.post(`${BaseApi}/page/contact-us`, formData);
+        const response = await axios.post(
+          `${BaseApi}/page/contact-us`,
+          formData
+        );
         handleRecaptchaReset();
 
         if (response.data.status === 200) {
@@ -463,21 +464,32 @@ const Page = () => {
           <div className="text-center PPSection1">
             <h1>{pageContent.page_title}</h1>
             <h6 className="text-muted fw-normal">
-              <Link href="/" style={{ color: "grey" }}>{t("navHeaders.home")}</Link> / {pageContent.page_title}
+              <Link href="/" style={{ color: "grey" }}>
+                {t("navHeaders.home")}
+              </Link>{" "}
+              / {pageContent.page_title}
             </h6>
           </div>
           <div className="container">
             <div className="row">
               <div className="col-md-6">
                 <div className="upperPart">
-                  <p>{pageContent.page_description && HTMLReactParser(pageContent.page_description)}</p>
+                  <p>
+                    {pageContent.page_description &&
+                      HTMLReactParser(pageContent.page_description)}
+                  </p>
                 </div>
               </div>
               <div className="col-md-6">
                 <div className="card">
                   <div className="card-body">
                     <h2 className="text-center pb-4 pt-2">
-                      {t("messageForm.sendusa")} <span className="textGradient"><span className="SubHaddingTxt">{t("messageForm.message")}</span></span>
+                      {t("messageForm.sendusa")}{" "}
+                      <span className="textGradient">
+                        <span className="SubHaddingTxt">
+                          {t("messageForm.message")}
+                        </span>
+                      </span>
                     </h2>
                     <form onSubmit={handleSubmit}>
                       <div className="mb-4">
@@ -487,9 +499,13 @@ const Page = () => {
                           value={formData.name}
                           onChange={handleChange}
                           placeholder={t("messageForm.namePlaceholder")}
-                          className={`form-control ${errors.name ? "input-error" : ""}`}
+                          className={`form-control ${
+                            errors.name ? "input-error" : ""
+                          }`}
                         />
-                        {errors.name && <div className="text-danger">{errors.name}</div>}
+                        {errors.name && (
+                          <div className="text-danger">{errors.name}</div>
+                        )}
                       </div>
                       <div className="mb-4">
                         <input
@@ -498,25 +514,45 @@ const Page = () => {
                           value={formData.email}
                           onChange={handleChange}
                           placeholder={t("messageForm.emailPlaceholder")}
-                          className={`form-control ${errors.email ? "input-error" : ""}`}
+                          className={`form-control ${
+                            errors.email ? "input-error" : ""
+                          }`}
                         />
-                        {errors.email && <div className="text-danger">{errors.email}</div>}
+                        {errors.email && (
+                          <div className="text-danger">{errors.email}</div>
+                        )}
                       </div>
                       <div className="mb-4">
                         <select
                           name="subject"
                           value={formData.subject}
                           onChange={handleChange}
-                          className={`form-select ${errors.subject ? "input-error" : ""}`}
+                          className={`form-select ${
+                            errors.subject ? "input-error" : ""
+                          }`}
                         >
-                          <option value="">{t("messageForm.selectPlaceholder")}</option>
-                          <option value="1">{t("messageForm.messageFormSelectOption1")}</option>
-                          <option value="2">{t("messageForm.messageFormSelectOption2")}</option>
-                          <option value="3">{t("messageForm.messageFormSelectOption3")}</option>
-                          <option value="4">{t("messageForm.messageFormSelectOption4")}</option>
-                          <option value="5">{t("messageForm.messageFormSelectOption5")}</option>
+                          <option value="">
+                            {t("messageForm.selectPlaceholder")}
+                          </option>
+                          <option value="1">
+                            {t("messageForm.messageFormSelectOption1")}
+                          </option>
+                          <option value="2">
+                            {t("messageForm.messageFormSelectOption2")}
+                          </option>
+                          <option value="3">
+                            {t("messageForm.messageFormSelectOption3")}
+                          </option>
+                          <option value="4">
+                            {t("messageForm.messageFormSelectOption4")}
+                          </option>
+                          <option value="5">
+                            {t("messageForm.messageFormSelectOption5")}
+                          </option>
                         </select>
-                        {errors.subject && <div className="text-danger">{errors.subject}</div>}
+                        {errors.subject && (
+                          <div className="text-danger">{errors.subject}</div>
+                        )}
                       </div>
                       <div className="mb-4">
                         <textarea
@@ -525,9 +561,13 @@ const Page = () => {
                           onChange={handleChange}
                           placeholder={t("messageForm.descPlaceholder")}
                           rows="5"
-                          className={`form-control ${errors.message ? "input-error" : ""}`}
+                          className={`form-control ${
+                            errors.message ? "input-error" : ""
+                          }`}
                         />
-                        {errors.message && <div className="text-danger">{errors.message}</div>}
+                        {errors.message && (
+                          <div className="text-danger">{errors.message}</div>
+                        )}
                       </div>
                       <div className="reCaptchaLogin mb-4">
                         {recaptchaVisible && (
@@ -538,13 +578,17 @@ const Page = () => {
                             onChange={(value) => setIsCaptchaVerified(!!value)}
                           />
                         )}
-                        {errors.captcha && <div className="text-danger">{errors.captcha}</div>}
+                        {errors.captcha && (
+                          <div className="text-danger">{errors.captcha}</div>
+                        )}
                       </div>
                       <button
                         type="submit"
                         className="btn w-100"
                         style={{
-                          backgroundColor: hoverColor ? secondaryColor : primaryColor,
+                          backgroundColor: hoverColor
+                            ? secondaryColor
+                            : primaryColor,
                         }}
                         onMouseEnter={() => setHoverColor(true)}
                         onMouseLeave={() => setHoverColor(false)}
@@ -565,4 +609,3 @@ const Page = () => {
 };
 
 export default Page;
-

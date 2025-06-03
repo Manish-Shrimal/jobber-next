@@ -29,7 +29,7 @@ import APFooter from "@/app/(admin-side)/admin/Components/APFooter";
 import { useRouter } from "next/navigation";
 
 const Page = () => {
-   const router = useRouter();
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [listData, setListData] = useState([]);
   const [checkedData, setCheckedData] = useState([]);
@@ -40,7 +40,7 @@ const Page = () => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 20;
-  const [userAccess , setUserAccess] = useState({})
+  const [userAccess, setUserAccess] = useState({});
 
   const getData = async () => {
     try {
@@ -527,10 +527,9 @@ const Page = () => {
   useEffect(() => {
     // Check if tokenKey is not present
 
-      // TokenKey is present, fetch data or perform other actions
-      getData();
-      window.scrollTo(0, 0);
-  
+    // TokenKey is present, fetch data or perform other actions
+    getData();
+    window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {
@@ -553,18 +552,16 @@ const Page = () => {
   };
 
   useEffect(() => {
-    const access = Cookies.get("access")
+    const access = Cookies.get("access");
 
-    if(typeof(access) !== null  || access !==  "" || access !==  undefined){
+    if (typeof access !== null || access !== "" || access !== undefined) {
+      console.log(JSON.parse(access));
 
-        console.log(JSON.parse(access))
-
-        setUserAccess(JSON.parse(access))
-    }else{
-        setUserAccess({})
+      setUserAccess(JSON.parse(access));
+    } else {
+      setUserAccess({});
     }
-
-  }, [])
+  }, []);
 
   return (
     <>
@@ -591,7 +588,11 @@ const Page = () => {
                   >
                     Dashboard
                   </Link>
-                  <Link href="/admin/currencies" underline="hover" color="inherit">
+                  <Link
+                    href="/admin/currencies"
+                    underline="hover"
+                    color="inherit"
+                  >
                     Currency
                   </Link>
 
@@ -600,14 +601,18 @@ const Page = () => {
               </div>
               <div className="ManageSubAdminHeader">
                 <h2 className="">Currency List</h2>
-                {(userAccess[4]?.Add === 1 || adminID === 1)&& <>
-                <button
-                  className="btn navButton1 APMSbutton"
-                  onClick={() => router.push("/admin/currencies/add-currency")}
-                >
-                  Add Currency
-                </button>
-                </>}
+                {(userAccess[4]?.Add === 1 || adminID === 1) && (
+                  <>
+                    <button
+                      className="btn navButton1 APMSbutton"
+                      onClick={() =>
+                        router.push("/admin/currencies/add-currency")
+                      }
+                    >
+                      Add Currency
+                    </button>
+                  </>
+                )}
               </div>
               {listData != "" ? (
                 <>
@@ -713,31 +718,37 @@ const Page = () => {
                                     </button>
                                   )}
 
-                                {(userAccess[4]?.Edit === 1 || adminID === 1)&& <>
-                                  <button
-                                    className="btn-primary"
-                                    onClick={() =>
-                                      router.push(
-                                        `/admin/currencies/edit-currency/${i.slug}`
-                                      )
-                                    }
-                                  >
-                                    <Tooltip title="Edit">
-                                      <CreateIcon />
-                                    </Tooltip>
-                                  </button>
-                                  </>}
+                                  {(userAccess[4]?.Edit === 1 ||
+                                    adminID === 1) && (
+                                    <>
+                                      <button
+                                        className="btn-primary"
+                                        onClick={() =>
+                                          router.push(
+                                            `/admin/currencies/edit-currency/${i.slug}`
+                                          )
+                                        }
+                                      >
+                                        <Tooltip title="Edit">
+                                          <CreateIcon />
+                                        </Tooltip>
+                                      </button>
+                                    </>
+                                  )}
 
-                                  {(userAccess[4]?.Delete === 1 || adminID === "1")&& <>
-                                  <button
-                                    className="btn btn-secondary"
-                                    onClick={() => handleDelete(i.slug)}
-                                  >
-                                    <Tooltip title="Delete">
-                                      <DeleteIcon />
-                                    </Tooltip>
-                                  </button>
-                                  </>}
+                                  {(userAccess[4]?.Delete === 1 ||
+                                    adminID === "1") && (
+                                    <>
+                                      <button
+                                        className="btn btn-secondary"
+                                        onClick={() => handleDelete(i.slug)}
+                                      >
+                                        <Tooltip title="Delete">
+                                          <DeleteIcon />
+                                        </Tooltip>
+                                      </button>
+                                    </>
+                                  )}
                                 </td>
                               </tr>
                             </>
@@ -762,15 +773,17 @@ const Page = () => {
                       >
                         DEACTIVATE
                       </button>
-                      {(userAccess[4]?.Delete === 1 || adminID === 1)&& <>
-                      <button
-                        type="button"
-                        className="btn btn-primary APButton4"
-                        onClick={() => handleMultipleDelete()}
-                      >
-                        DELETE
-                      </button>
-                      </>}
+                      {(userAccess[4]?.Delete === 1 || adminID === 1) && (
+                        <>
+                          <button
+                            type="button"
+                            className="btn btn-primary APButton4"
+                            onClick={() => handleMultipleDelete()}
+                          >
+                            DELETE
+                          </button>
+                        </>
+                      )}
                     </div>
 
                     <div className="pagination">

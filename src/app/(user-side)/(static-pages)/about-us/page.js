@@ -348,10 +348,16 @@ import Cookies from "js-cookie";
 import { useTranslation } from "react-i18next";
 import Image from "next/image";
 import Link from "next/link";
+import { useRecoilValue } from "recoil";
+import { configState } from "@/app/lib/atoms/ConfigAtom";
 
 const Page = () => {
   const [aboutUs, setAboutUs] = useState([]);
   const [t, i18n] = useTranslation("common");
+  const config = useRecoilValue(configState);
+  // const primaryColor = config.primary_color || "#007bff";
+  const secondaryColor = config.secondary_color || "#005a9c";
+  // const siteLogo = config.site_logo || "/Images/logo.png";
   const currentLanguage = Cookies.get("selectedLanguage") || "en";
 
   const getData = async () => {
@@ -365,8 +371,6 @@ const Page = () => {
     }
   };
 
-  let primaryColor = Cookies.get("primaryColor");
-  let secondaryColor = Cookies.get("secondaryColor");
 
   useEffect(() => {
     getData();

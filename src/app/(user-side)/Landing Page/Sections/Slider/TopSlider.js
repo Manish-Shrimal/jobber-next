@@ -306,7 +306,7 @@ const TopSlider = React.memo(
                   border: hoverSearchColor ? secondaryColor : primaryColor,
                 }}
                 onClick={() => {
-                  router.push(keyword ? `/jobs/searchjob/${keyword}` : "/searchjob");
+                  router.push(keyword ? `/jobs/search-job/${keyword}` : "/search-job");
                 }}
                 onMouseEnter={handleSearchMouseEnter}
                 onMouseLeave={handleSearchMouseLeave}

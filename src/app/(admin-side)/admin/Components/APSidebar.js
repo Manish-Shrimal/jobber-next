@@ -30,28 +30,35 @@ import { useRouter, usePathname, useParams } from "next/navigation";
 import Link from "next/link";
 
 const APSidebar = () => {
-  const [showConfigurationDropdown, setShowConfigurationDropdown] = useState(false);
+  const [showConfigurationDropdown, setShowConfigurationDropdown] =
+    useState(false);
   const [showSettingDropdown, setShowSettingDropdown] = useState(false);
   const [showEmployerDropdown, setShowEmployerDropdown] = useState(false);
   const [showJobseekerDropdown, setShowJobseekerDropdown] = useState(false);
   const [showCategoriesDropdown, setShowCategoriesDropdown] = useState(false);
   const [showSwearwordsDropdown, setShowSwearwordsDropdown] = useState(false);
   const [showSkillsDropdown, setShowSkillsDropdown] = useState(false);
-  const [showDesignationsDropdown, setShowDesignationsDropdown] = useState(false);
+  const [showDesignationsDropdown, setShowDesignationsDropdown] =
+    useState(false);
   const [showJobsDropdown, setShowJobsDropdown] = useState(false);
-  const [showPaymentHistoryDropdown, setShowPaymentHistoryDropdown] = useState(false);
+  const [showPaymentHistoryDropdown, setShowPaymentHistoryDropdown] =
+    useState(false);
   const [showCurrencyDropdown, setShowCurrencyDropdown] = useState(false);
   const [showNewsletterDropdown, setShowNewsletterDropdown] = useState(false);
-  const [showBannerAdvertisementDropdown, setShowBannerAdvertisementDropdown] = useState(false);
+  const [showBannerAdvertisementDropdown, setShowBannerAdvertisementDropdown] =
+    useState(false);
   const [showCourseDropdown, setShowCourseDropdown] = useState(false);
   const [showContentDropdown, setShowContentDropdown] = useState(false);
-  const [showEmailTemplateDropdown, setShowEmailTemplateDropdown] = useState(false);
+  const [showEmailTemplateDropdown, setShowEmailTemplateDropdown] =
+    useState(false);
   const [showBlogsDropdown, setShowBlogsDropdown] = useState(false);
   const [showSlidersDropdown, setShowSlidersDropdown] = useState(false);
-  const [showAnnouncementDropdown, setShowAnnouncementDropdown] = useState(false);
+  const [showAnnouncementDropdown, setShowAnnouncementDropdown] =
+    useState(false);
   const [showKeywordsDropdown, setShowKeywordsDropdown] = useState(false);
   const [showManagePlansDropdown, setShowManagePlansDropdown] = useState(false);
-  const [isJobseekerNavLinksVisible, setIsJobseekerNavLinksVisible] = useState(false);
+  const [isJobseekerNavLinksVisible, setIsJobseekerNavLinksVisible] =
+    useState(false);
   const [screenWidth, setScreenWidth] = useState(null); // Initialize as null for SSR
   const [userAccess, setUserAccess] = useState({});
 
@@ -226,9 +233,7 @@ const APSidebar = () => {
                       <Link href="/admin/change-email">
                         <li
                           className={`row ${
-                            pathname === "/admin/change-email"
-                              ? "active"
-                              : ""
+                            pathname === "/admin/change-email" ? "active" : ""
                           }`}
                         >
                           <div id="innerIcon">
@@ -247,11 +252,9 @@ const APSidebar = () => {
                           </p>
                         </li>
                       </Link>
-                      
                     </ul>
                   </div>
                 </div>
-               
 
                 {userAccess[0]?.Module === 1 && (
                   <>
@@ -265,7 +268,7 @@ const APSidebar = () => {
                         <BadgeIcon />
                       </div>
                       <p id="title">Employers</p>
-                     
+
                       <div id="icon2">
                         <ExpandMoreIcon />
                       </div>
@@ -285,8 +288,7 @@ const APSidebar = () => {
                             <li
                               className={`row ${
                                 pathname === "/admin/employer-list" ||
-                                pathname ===
-                                  `/admin/users/editusers/${slug}`
+                                pathname === `/admin/users/editusers/${slug}`
                                   ? "active"
                                   : ""
                               }`}
@@ -298,8 +300,7 @@ const APSidebar = () => {
                                 id="innerTitle"
                                 style={{
                                   color:
-                                    pathname ===
-                                      "/admin/employer-list" ||
+                                    pathname === "/admin/employer-list" ||
                                     pathname ===
                                       `/admin/users/editusers/${slug}`
                                       ? "#f3734c"
@@ -343,8 +344,7 @@ const APSidebar = () => {
                           <Link href="/admin/homepage-slider">
                             <li
                               className={`row ${
-                                pathname ===
-                                "/admin/homepage-slider"
+                                pathname === "/admin/homepage-slider"
                                   ? "active"
                                   : ""
                               }`}
@@ -356,8 +356,7 @@ const APSidebar = () => {
                                 id="innerTitle"
                                 style={{
                                   color:
-                                    pathname ===
-                                    "/admin/homepage-slider"
+                                    pathname === "/admin/homepage-slider"
                                       ? "#f3734c"
                                       : "inherit",
                                 }}
@@ -407,8 +406,7 @@ const APSidebar = () => {
                                   `/admin/jobseeker/edit-jobseeker/${slug}` ||
                                 pathname ===
                                   `/admin/candidates/certificates/${slug}` ||
-                                pathname ===
-                                  `/admin/jobs/applied/${slug}`
+                                pathname === `/admin/jobs/applied/${slug}`
                                   ? "active"
                                   : ""
                               }`}
@@ -425,8 +423,7 @@ const APSidebar = () => {
                                       `/admin/candidates/editcandidates/${slug}` ||
                                     pathname ===
                                       `/admin/candidates/certificates/${slug}` ||
-                                    pathname ===
-                                      `/admin/jobs/applied/${slug}`
+                                    pathname === `/admin/jobs/applied/${slug}`
                                       ? "#f3734c"
                                       : "inherit",
                                 }}
@@ -522,8 +519,6 @@ const APSidebar = () => {
                   </>
                 )}
 
-              
-
                 {userAccess[8]?.Module === 1 && (
                   <>
                     <li
@@ -534,7 +529,7 @@ const APSidebar = () => {
                         <AddchartIcon />
                       </div>
                       <p id="title">Skills</p>
-                      
+
                       <div id="icon2">
                         <ExpandMoreIcon />
                       </div>
@@ -634,7 +629,7 @@ const APSidebar = () => {
                         <WorkIcon />
                       </div>
                       <p id="title">Jobs</p>
-                     
+
                       <div id="icon2">
                         <ExpandMoreIcon />
                       </div>
@@ -649,12 +644,9 @@ const APSidebar = () => {
                             <li
                               className={`row ${
                                 pathname === "/admin/jobs" ||
-                                pathname ===
-                                  `/admin/jobs/editjob/${slug}` ||
-                                pathname ===
-                                  `/admin/jobs/candidates/${slug}` ||
-                                pathname ===
-                                  `/admin/jobs/addjob/${slug}`
+                                pathname === `/admin/jobs/editjob/${slug}` ||
+                                pathname === `/admin/jobs/candidates/${slug}` ||
+                                pathname === `/admin/jobs/addjob/${slug}`
                                   ? "active"
                                   : ""
                               }`}
@@ -671,8 +663,7 @@ const APSidebar = () => {
                                       `/admin/jobs/editjob/${slug}` ||
                                     pathname ===
                                       `/admin/jobs/candidates/${slug}` ||
-                                    pathname ===
-                                      `/admin/jobs/addjob/${slug}`
+                                    pathname === `/admin/jobs/addjob/${slug}`
                                       ? "#f3734c"
                                       : "inherit",
                                 }}
@@ -699,8 +690,7 @@ const APSidebar = () => {
                                     id="innerTitle"
                                     style={{
                                       color:
-                                        pathname ===
-                                        "/admin/jobs/addjob"
+                                        pathname === "/admin/jobs/addjob"
                                           ? "#f3734c"
                                           : "inherit",
                                     }}
@@ -724,8 +714,7 @@ const APSidebar = () => {
                                     id="innerTitle"
                                     style={{
                                       color:
-                                        pathname ===
-                                        "/admin/jobs/import"
+                                        pathname === "/admin/jobs/import"
                                           ? "#f3734c"
                                           : "inherit",
                                     }}
@@ -737,8 +726,7 @@ const APSidebar = () => {
                               <Link href="/admin/jobs/csv-upload">
                                 <li
                                   className={`row ${
-                                    pathname ===
-                                    "/admin/jobs/csv-upload"
+                                    pathname === "/admin/jobs/csv-upload"
                                       ? "active"
                                       : ""
                                   }`}
@@ -750,8 +738,7 @@ const APSidebar = () => {
                                     id="innerTitle"
                                     style={{
                                       color:
-                                        pathname ===
-                                        "/admin/jobs/csv-upload"
+                                        pathname === "/admin/jobs/csv-upload"
                                           ? "#f3734c"
                                           : "inherit",
                                     }}
@@ -763,8 +750,7 @@ const APSidebar = () => {
                               <Link href="/admin/jobs/importlist">
                                 <li
                                   className={`row ${
-                                    pathname ===
-                                    "/admin/jobs/importlist"
+                                    pathname === "/admin/jobs/importlist"
                                       ? "active"
                                       : ""
                                   }`}
@@ -776,8 +762,7 @@ const APSidebar = () => {
                                     id="innerTitle"
                                     style={{
                                       color:
-                                        pathname ===
-                                        "/admin/jobs/importlist"
+                                        pathname === "/admin/jobs/importlist"
                                           ? "#f3734c"
                                           : "inherit",
                                     }}
@@ -794,8 +779,6 @@ const APSidebar = () => {
                   </>
                 )}
 
-              
-
                 {userAccess[4]?.Module === 1 && (
                   <>
                     <li
@@ -808,7 +791,7 @@ const APSidebar = () => {
                         <PaidIcon />
                       </div>
                       <p id="title">Currency</p>
-                      
+
                       <div id="icon2">
                         <ExpandMoreIcon />
                       </div>
@@ -886,8 +869,6 @@ const APSidebar = () => {
                   </>
                 )}
 
-                
-
                 {userAccess[5]?.Module === 1 && (
                   <>
                     <li
@@ -898,7 +879,7 @@ const APSidebar = () => {
                         <LibraryBooksIcon />
                       </div>
                       <p id="title">Course</p>
-                      
+
                       <div id="icon2">
                         <ExpandMoreIcon />
                       </div>
@@ -970,12 +951,12 @@ const APSidebar = () => {
                     >
                       <div className="dropdown-item">
                         <ul className="SidebarListInternal">
-                          <Link href="/admin/pages/index">
+                          <Link href="/admin/content/index">
                             <li
                               className={`row ${
-                                pathname === "/admin/pages/index" ||
+                                pathname === "/admin/content/index" ||
                                 pathname ===
-                                  `/admin/pages/editPage/${slug}`
+                                  `/admin/content/edit-content/${slug}`
                                   ? "active"
                                   : ""
                               }`}
@@ -987,10 +968,9 @@ const APSidebar = () => {
                                 id="innerTitle"
                                 style={{
                                   color:
+                                    pathname === "/admin/content/index" ||
                                     pathname ===
-                                      "/admin/pages/index" ||
-                                    pathname ===
-                                      `/admin/pages/editPage/${slug}`
+                                      `/admin/content/edit-content/${slug}`
                                       ? "#f3734c"
                                       : "inherit",
                                 }}
@@ -1066,7 +1046,7 @@ const APSidebar = () => {
                         <RateReviewIcon />
                       </div>
                       <p id="title">Blogs</p>
-                     
+
                       <div id="icon2">
                         <ExpandMoreIcon />
                       </div>
@@ -1077,12 +1057,11 @@ const APSidebar = () => {
                     >
                       <div className="dropdown-item">
                         <ul className="SidebarListInternal">
-                          <Link href="/admin/blogs">
+                          <Link href="/admin/blogs/index">
                             <li
                               className={`row ${
-                                pathname === "/admin/blogs" ||
-                                pathname ===
-                                  `/admin/blogs/editblogs/${slug}`
+                                pathname === "/admin/blogs/index" ||
+                                pathname === `/admin/blogs/edit-blog/${slug}`
                                   ? "active"
                                   : ""
                               }`}
@@ -1094,9 +1073,9 @@ const APSidebar = () => {
                                 id="innerTitle"
                                 style={{
                                   color:
-                                    pathname === "/admin/blogs" ||
+                                    pathname === "/admin/blogs/index" ||
                                     pathname ===
-                                      `/admin/blogs/editblogs/${slug}`
+                                      `/admin/blogs/edit-blog/${slug}`
                                       ? "#f3734c"
                                       : "inherit",
                                 }}
@@ -1108,11 +1087,10 @@ const APSidebar = () => {
 
                           {userAccess[6]?.Add === 1 && (
                             <>
-                              <Link href="/admin/blogs/addblogs">
+                              <Link href="/admin/blogs/add-blog">
                                 <li
                                   className={`row ${
-                                    pathname ===
-                                    "/admin/blogs/addblogs"
+                                    pathname === "/admin/blogs/add-blog"
                                       ? "active"
                                       : ""
                                   }`}
@@ -1124,8 +1102,7 @@ const APSidebar = () => {
                                     id="innerTitle"
                                     style={{
                                       color:
-                                        pathname ===
-                                        "/admin/blogs/addblogs"
+                                        pathname === "/admin/blogs/add-blog"
                                           ? "#f3734c"
                                           : "inherit",
                                     }}
@@ -1141,8 +1118,6 @@ const APSidebar = () => {
                     </div>
                   </>
                 )}
-
-                
               </ul>
             </div>
           ) : (
@@ -1171,7 +1146,7 @@ const APSidebar = () => {
                     <PermDataSettingIcon />
                   </div>
                   <p id="title">Configurations</p>
-                  
+
                   <div id="icon2">
                     <ExpandMoreIcon />
                   </div>
@@ -1235,9 +1210,7 @@ const APSidebar = () => {
                       <Link href="/admin/change-email">
                         <li
                           className={`row ${
-                            pathname === "/admin/change-email"
-                              ? "active"
-                              : ""
+                            pathname === "/admin/change-email" ? "active" : ""
                           }`}
                         >
                           <div id="innerIcon">
@@ -1272,8 +1245,7 @@ const APSidebar = () => {
                             id="innerTitle"
                             style={{
                               color:
-                                pathname ===
-                                "/admin/security-questions"
+                                pathname === "/admin/security-questions"
                                   ? "#f3734c"
                                   : "inherit",
                             }}
@@ -1287,8 +1259,7 @@ const APSidebar = () => {
                           className={`row ${
                             pathname === "/admin/manage-plans" ||
                             pathname === "/admin/plans/addplan" ||
-                            pathname ===
-                              `/admin/plans/editPlan/${slug}`
+                            pathname === `/admin/plans/editPlan/${slug}`
                               ? "active"
                               : ""
                           }`}
@@ -1302,8 +1273,7 @@ const APSidebar = () => {
                               color:
                                 pathname === "/admin/manage-plans" ||
                                 pathname === "/admin/plans/addplan" ||
-                                pathname ===
-                                  `/admin/plans/editPlan/${slug}`
+                                pathname === `/admin/plans/editPlan/${slug}`
                                   ? "#f3734c"
                                   : "inherit",
                             }}
@@ -1327,8 +1297,7 @@ const APSidebar = () => {
                             id="innerTitle"
                             style={{
                               color:
-                                pathname ===
-                                "/admin/set-contactus-address"
+                                pathname === "/admin/set-contactus-address"
                                   ? "#f3734c"
                                   : "inherit",
                             }}
@@ -1340,9 +1309,7 @@ const APSidebar = () => {
                       <Link href="/admin/slogan-text">
                         <li
                           className={`row ${
-                            pathname === "/admin/slogan-text"
-                              ? "active"
-                              : ""
+                            pathname === "/admin/slogan-text" ? "active" : ""
                           }`}
                         >
                           <div id="innerIcon">
@@ -1364,9 +1331,7 @@ const APSidebar = () => {
                       <Link href="/admin/change-logo">
                         <li
                           className={`row ${
-                            pathname === "/admin/change-logo"
-                              ? "active"
-                              : ""
+                            pathname === "/admin/change-logo" ? "active" : ""
                           }`}
                         >
                           <div id="innerIcon">
@@ -1388,9 +1353,7 @@ const APSidebar = () => {
                       <Link href="/admin/change-favicon">
                         <li
                           className={`row ${
-                            pathname === "/admin/change-favicon"
-                              ? "active"
-                              : ""
+                            pathname === "/admin/change-favicon" ? "active" : ""
                           }`}
                         >
                           <div id="innerIcon">
@@ -1424,8 +1387,7 @@ const APSidebar = () => {
                             id="innerTitle"
                             style={{
                               color:
-                                pathname ===
-                                "/admin/change-color-theme"
+                                pathname === "/admin/change-color-theme"
                                   ? "#f3734c"
                                   : "inherit",
                             }}
@@ -1437,8 +1399,7 @@ const APSidebar = () => {
                       <Link href="/admin/change-payment-details">
                         <li
                           className={`row ${
-                            pathname ===
-                            "/admin/change-payment-details"
+                            pathname === "/admin/change-payment-details"
                               ? "active"
                               : ""
                           }`}
@@ -1450,8 +1411,7 @@ const APSidebar = () => {
                             id="innerTitle"
                             style={{
                               color:
-                                pathname ===
-                                "/admin/change-payment-details"
+                                pathname === "/admin/change-payment-details"
                                   ? "#f3734c"
                                   : "inherit",
                             }}
@@ -1461,7 +1421,6 @@ const APSidebar = () => {
                         </li>
                       </Link>
 
-                      
                       <Link href="/admin/meta-management">
                         <li
                           className={`row ${
@@ -1504,13 +1463,10 @@ const APSidebar = () => {
                             id="innerTitle"
                             style={{
                               color:
-                                pathname ===
-                                  "/admin/manage-subadmins" ||
+                                pathname === "/admin/manage-subadmins" ||
                                 pathname === "/admin/addsubadmin" ||
-                                pathname ===
-                                  `/admin/editadmins/${slug}` ||
-                                pathname ===
-                                  `/admin/managerole/${slug}`
+                                pathname === `/admin/editadmins/${slug}` ||
+                                pathname === `/admin/managerole/${slug}`
                                   ? "#f3734c"
                                   : "inherit",
                             }}
@@ -1522,9 +1478,7 @@ const APSidebar = () => {
                       <Link href="/admin/smtp-settings">
                         <li
                           className={`row ${
-                            pathname === "/admin/smtp-settings"
-                              ? "active"
-                              : ""
+                            pathname === "/admin/smtp-settings" ? "active" : ""
                           }`}
                         >
                           <div id="innerIcon">
@@ -1557,7 +1511,6 @@ const APSidebar = () => {
                   </div>
                   <p id="title">Settings</p>
 
-                  
                   <div id="icon2">
                     <ExpandMoreIcon />
                   </div>
@@ -1571,9 +1524,7 @@ const APSidebar = () => {
                       <Link href="/admin/site-setting">
                         <li
                           className={`row ${
-                            pathname === "/admin/site-setting"
-                              ? "active"
-                              : ""
+                            pathname === "/admin/site-setting" ? "active" : ""
                           }`}
                         >
                           <div id="innerIcon">
@@ -1595,10 +1546,8 @@ const APSidebar = () => {
                       <Link href="/admin/manage-email-setting">
                         <li
                           className={`row ${
-                            pathname ===
-                              "/admin/manage-email-setting" ||
-                            pathname ===
-                              `/admin/settings/editMails/${slug}`
+                            pathname === "/admin/manage-email-setting" ||
+                            pathname === `/admin/settings/editMails/${slug}`
                               ? "active"
                               : ""
                           }`}
@@ -1610,10 +1559,8 @@ const APSidebar = () => {
                             id="innerTitle"
                             style={{
                               color:
-                                pathname ===
-                                  "/admin/manage-email-setting" ||
-                                pathname ===
-                                  `/admin/settings/editMails/${slug}`
+                                pathname === "/admin/manage-email-setting" ||
+                                pathname === `/admin/settings/editMails/${slug}`
                                   ? "#f3734c"
                                   : "inherit",
                             }}
@@ -1634,7 +1581,7 @@ const APSidebar = () => {
                     <BadgeIcon />
                   </div>
                   <p id="title">Employers</p>
-                  
+
                   <div id="icon2">
                     <ExpandMoreIcon />
                   </div>
@@ -1652,8 +1599,7 @@ const APSidebar = () => {
                         <li
                           className={`row ${
                             pathname === "/admin/employer-list" ||
-                            pathname ===
-                              `/admin/users/editusers/${slug}`
+                            pathname === `/admin/users/editusers/${slug}`
                               ? "active"
                               : ""
                           }`}
@@ -1666,8 +1612,7 @@ const APSidebar = () => {
                             style={{
                               color:
                                 pathname === "/admin/employer-list" ||
-                                pathname ===
-                                  `/admin/users/editusers/${slug}`
+                                pathname === `/admin/users/editusers/${slug}`
                                   ? "#f3734c"
                                   : "inherit",
                             }}
@@ -1679,8 +1624,7 @@ const APSidebar = () => {
                       <Link href="/admin/employer-list/add-employer">
                         <li
                           className={`row ${
-                            pathname ===
-                            "/admin/employer-list/add-employer"
+                            pathname === "/admin/employer-list/add-employer"
                               ? "active"
                               : ""
                           }`}
@@ -1692,8 +1636,7 @@ const APSidebar = () => {
                             id="innerTitle"
                             style={{
                               color:
-                                pathname ===
-                                "/admin/employer-list/add-employer"
+                                pathname === "/admin/employer-list/add-employer"
                                   ? "#f3734c"
                                   : "inherit",
                             }}
@@ -1717,8 +1660,7 @@ const APSidebar = () => {
                             id="innerTitle"
                             style={{
                               color:
-                                pathname ===
-                                "/admin/homepage-slider"
+                                pathname === "/admin/homepage-slider"
                                   ? "#f3734c"
                                   : "inherit",
                             }}
@@ -1741,7 +1683,7 @@ const APSidebar = () => {
                     <GroupIcon />
                   </div>
                   <p id="title">Jobseekers</p>
-                 
+
                   <div id="icon2">
                     <ExpandMoreIcon />
                   </div>
@@ -1777,8 +1719,7 @@ const APSidebar = () => {
                                   `/admin/jobseeker/edit-jobseeker/${slug}` ||
                                 pathname ===
                                   `/admin/jobseeker/certificates/${slug}` ||
-                                pathname ===
-                                  `/admin/jobs/applied/${slug}`
+                                pathname === `/admin/jobs/applied/${slug}`
                                   ? "#f3734c"
                                   : "inherit",
                             }}
@@ -1790,8 +1731,7 @@ const APSidebar = () => {
                       <Link href="/admin/jobseeker/add-jobseeker">
                         <li
                           className={`row ${
-                            pathname ===
-                            "/admin/jobseeker/add-jobseeker"
+                            pathname === "/admin/jobseeker/add-jobseeker"
                               ? "active"
                               : ""
                           }`}
@@ -1803,8 +1743,7 @@ const APSidebar = () => {
                             id="innerTitle"
                             style={{
                               color:
-                                pathname ===
-                                "/admin/jobseeker/add-jobseeker"
+                                pathname === "/admin/jobseeker/add-jobseeker"
                                   ? "#f3734c"
                                   : "inherit",
                             }}
@@ -1827,7 +1766,7 @@ const APSidebar = () => {
                     <CategoryIcon />
                   </div>
                   <p id="title">Categories</p>
-                 
+
                   <div id="icon2">
                     <ExpandMoreIcon />
                   </div>
@@ -1844,8 +1783,7 @@ const APSidebar = () => {
                             pathname === "/admin/categories/index" ||
                             pathname ===
                               `/admin/categories/edit-category/${slug}` ||
-                            pathname ===
-                              `/admin/categories/subindex/${slug}` ||
+                            pathname === `/admin/categories/subindex/${slug}` ||
                             pathname ===
                               `/admin/categories/editsubcat/${slug1}/${slug2}`
                               ? "active"
@@ -1877,8 +1815,7 @@ const APSidebar = () => {
                       <Link href="/admin/categories/add-category">
                         <li
                           className={`row ${
-                            pathname ===
-                            "/admin/categories/add-category"
+                            pathname === "/admin/categories/add-category"
                               ? "active"
                               : ""
                           }`}
@@ -1890,8 +1827,7 @@ const APSidebar = () => {
                             id="innerTitle"
                             style={{
                               color:
-                                pathname ===
-                                "/admin/categories/add-category"
+                                pathname === "/admin/categories/add-category"
                                   ? "#f3734c"
                                   : "inherit",
                             }}
@@ -1976,7 +1912,8 @@ const APSidebar = () => {
                             id="innerTitle"
                             style={{
                               color:
-                                pathname === "/admin/swear-words/add-swear-words"
+                                pathname ===
+                                "/admin/swear-words/add-swear-words"
                                   ? "#f3734c"
                                   : "inherit",
                             }}
@@ -1997,7 +1934,7 @@ const APSidebar = () => {
                     <AddchartIcon />
                   </div>
                   <p id="title">Skills</p>
-                  
+
                   <div id="icon2">
                     <ExpandMoreIcon />
                   </div>
@@ -2010,8 +1947,7 @@ const APSidebar = () => {
                         <li
                           className={`row ${
                             pathname === "/admin/skill/index" ||
-                            pathname ===
-                              `/admin/skill/edit-skill/${slug}`
+                            pathname === `/admin/skill/edit-skill/${slug}`
                               ? "active"
                               : ""
                           }`}
@@ -2024,8 +1960,7 @@ const APSidebar = () => {
                             style={{
                               color:
                                 pathname === "/admin/skill/index" ||
-                                pathname ===
-                                  `/admin/skill/edit-skill/${slug}`
+                                pathname === `/admin/skill/edit-skill/${slug}`
                                   ? "#f3734c"
                                   : "inherit",
                             }}
@@ -2072,7 +2007,7 @@ const APSidebar = () => {
                     <SchoolIcon />
                   </div>
                   <p id="title">Designations</p>
-                  
+
                   <div id="icon2">
                     <ExpandMoreIcon />
                   </div>
@@ -2089,8 +2024,7 @@ const APSidebar = () => {
                         <li
                           className={`row ${
                             pathname === "/admin/designation" ||
-                            pathname ===
-                              `/admin/designation/${slug}`
+                            pathname === `/admin/designation/${slug}`
                               ? "active"
                               : ""
                           }`}
@@ -2103,8 +2037,7 @@ const APSidebar = () => {
                             style={{
                               color:
                                 pathname === "/admin/designation" ||
-                                pathname ===
-                                  `/admin/designation/${slug}`
+                                pathname === `/admin/designation/${slug}`
                                   ? "#f3734c"
                                   : "inherit",
                             }}
@@ -2116,8 +2049,7 @@ const APSidebar = () => {
                       <Link href="/admin/designation/add">
                         <li
                           className={`row ${
-                            pathname ===
-                            "/admin/designation/add"
+                            pathname === "/admin/designation/add"
                               ? "active"
                               : ""
                           }`}
@@ -2129,8 +2061,7 @@ const APSidebar = () => {
                             id="innerTitle"
                             style={{
                               color:
-                                pathname ===
-                                "/admin/designation/add"
+                                pathname === "/admin/designation/add"
                                   ? "#f3734c"
                                   : "inherit",
                             }}
@@ -2151,7 +2082,7 @@ const APSidebar = () => {
                     <WorkIcon />
                   </div>
                   <p id="title">Jobs</p>
-                 
+
                   <div id="icon2">
                     <ExpandMoreIcon />
                   </div>
@@ -2164,10 +2095,8 @@ const APSidebar = () => {
                         <li
                           className={`row ${
                             pathname === "/admin/jobs" ||
-                            pathname ===
-                              `/admin/jobs/editjob/${slug}` ||
-                            pathname ===
-                              `/admin/jobs/candidates/${slug}` ||
+                            pathname === `/admin/jobs/editjob/${slug}` ||
+                            pathname === `/admin/jobs/candidates/${slug}` ||
                             pathname === `/admin/jobs/addjob/${slug}`
                               ? "active"
                               : ""
@@ -2181,12 +2110,9 @@ const APSidebar = () => {
                             style={{
                               color:
                                 pathname === "/admin/jobs" ||
-                                pathname ===
-                                  `/admin/jobs/editjob/${slug}` ||
-                                pathname ===
-                                  `/admin/jobs/candidates/${slug}` ||
-                                pathname ===
-                                  `/admin/jobs/addjob/${slug}`
+                                pathname === `/admin/jobs/editjob/${slug}` ||
+                                pathname === `/admin/jobs/candidates/${slug}` ||
+                                pathname === `/admin/jobs/addjob/${slug}`
                                   ? "#f3734c"
                                   : "inherit",
                             }}
@@ -2198,9 +2124,7 @@ const APSidebar = () => {
                       <Link href="/admin/jobs/addjob">
                         <li
                           className={`row ${
-                            pathname === "/admin/jobs/addjob"
-                              ? "active"
-                              : ""
+                            pathname === "/admin/jobs/addjob" ? "active" : ""
                           }`}
                         >
                           <div id="innerIcon">
@@ -2222,9 +2146,7 @@ const APSidebar = () => {
                       <Link href="/admin/jobs/import">
                         <li
                           className={`row ${
-                            pathname === "/admin/jobs/import"
-                              ? "active"
-                              : ""
+                            pathname === "/admin/jobs/import" ? "active" : ""
                           }`}
                         >
                           <div id="innerIcon">
@@ -2305,7 +2227,7 @@ const APSidebar = () => {
                     <PaymentIcon />
                   </div>
                   <p id="title">Payment History</p>
-                  
+
                   <div id="icon2">
                     <ExpandMoreIcon />
                   </div>
@@ -2354,7 +2276,7 @@ const APSidebar = () => {
                     <PaidIcon />
                   </div>
                   <p id="title">Currency</p>
-                  
+
                   <div id="icon2">
                     <ExpandMoreIcon />
                   </div>
@@ -2431,7 +2353,7 @@ const APSidebar = () => {
                     <UnsubscribeIcon />
                   </div>
                   <p id="title">Manage Newsletter</p>
-                 
+
                   <div id="icon2">
                     <ExpandMoreIcon />
                   </div>
@@ -2461,8 +2383,7 @@ const APSidebar = () => {
                             id="innerTitle"
                             style={{
                               color:
-                                pathname ===
-                                  "/admin/newsletter-list/index" ||
+                                pathname === "/admin/newsletter-list/index" ||
                                 pathname ===
                                   "/admin/newsletter-list/add-newsletter" ||
                                 pathname ===
@@ -2478,8 +2399,7 @@ const APSidebar = () => {
                       <Link href="/admin/send-newsletter-email">
                         <li
                           className={`row ${
-                            pathname ===
-                            "/admin/send-newsletter-email"
+                            pathname === "/admin/send-newsletter-email"
                               ? "active"
                               : ""
                           }`}
@@ -2491,8 +2411,7 @@ const APSidebar = () => {
                             id="innerTitle"
                             style={{
                               color:
-                                pathname ===
-                                "/admin/send-newsletter-email"
+                                pathname === "/admin/send-newsletter-email"
                                   ? "#f3734c"
                                   : "inherit",
                             }}
@@ -2504,9 +2423,7 @@ const APSidebar = () => {
                       <Link href="/admin/email-logs">
                         <li
                           className={`row ${
-                            pathname === "/admin/email-logs"
-                              ? "active"
-                              : ""
+                            pathname === "/admin/email-logs" ? "active" : ""
                           }`}
                         >
                           <div id="innerIcon">
@@ -2516,8 +2433,7 @@ const APSidebar = () => {
                             id="innerTitle"
                             style={{
                               color:
-                                pathname ===
-                                "/admin/email-logs"
+                                pathname === "/admin/email-logs"
                                   ? "#f3734c"
                                   : "inherit",
                             }}
@@ -2529,8 +2445,7 @@ const APSidebar = () => {
                       <Link href="/admin/unsubscribed-user-list">
                         <li
                           className={`row ${
-                            pathname ===
-                            "/admin/unsubscribed-user-list"
+                            pathname === "/admin/unsubscribed-user-list"
                               ? "active"
                               : ""
                           }`}
@@ -2542,8 +2457,7 @@ const APSidebar = () => {
                             id="innerTitle"
                             style={{
                               color:
-                                pathname ===
-                                "/admin/unsubscribed-user-list"
+                                pathname === "/admin/unsubscribed-user-list"
                                   ? "#f3734c"
                                   : "inherit",
                             }}
@@ -2568,7 +2482,7 @@ const APSidebar = () => {
                     <FeaturedVideoIcon />
                   </div>
                   <p id="title">Banner Advertisement</p>
-                 
+
                   <div id="icon2">
                     <ExpandMoreIcon />
                   </div>
@@ -2584,10 +2498,8 @@ const APSidebar = () => {
                       <Link href="/admin/banners/index">
                         <li
                           className={`row ${
-                            pathname ===
-                              "/admin/banners/index" ||
-                            pathname ===
-                              `/admin/banners/edit-banner/${slug}`
+                            pathname === "/admin/banners/index" ||
+                            pathname === `/admin/banners/edit-banner/${slug}`
                               ? "active"
                               : ""
                           }`}
@@ -2599,8 +2511,7 @@ const APSidebar = () => {
                             id="innerTitle"
                             style={{
                               color:
-                                pathname ===
-                                  "/admin/banners/index" ||
+                                pathname === "/admin/banners/index" ||
                                 pathname ===
                                   `/admin/banners/edit-banner/${slug}`
                                   ? "#f3734c"
@@ -2614,8 +2525,7 @@ const APSidebar = () => {
                       <Link href="/admin/banners/add-banner">
                         <li
                           className={`row ${
-                            pathname ===
-                            "/admin/banners/add-banner"
+                            pathname === "/admin/banners/add-banner"
                               ? "active"
                               : ""
                           }`}
@@ -2627,8 +2537,7 @@ const APSidebar = () => {
                             id="innerTitle"
                             style={{
                               color:
-                                pathname ===
-                                "/admin/banners/add-banner"
+                                pathname === "/admin/banners/add-banner"
                                   ? "#f3734c"
                                   : "inherit",
                             }}
@@ -2649,7 +2558,7 @@ const APSidebar = () => {
                     <LibraryBooksIcon />
                   </div>
                   <p id="title">Course</p>
-                  
+
                   <div id="icon2">
                     <ExpandMoreIcon />
                   </div>
@@ -2662,10 +2571,8 @@ const APSidebar = () => {
                         <li
                           className={`row ${
                             pathname === "/admin/course/index" ||
-                            pathname ===
-                              `/admin/course/edit-course/${slug}` ||
-                            pathname ===
-                              `/admin/course/${slug}/index` ||
+                            pathname === `/admin/course/edit-course/${slug}` ||
+                            pathname === `/admin/course/${slug}/index` ||
                             pathname ===
                               `/admin/specializations/addspecialization/${slug}` ||
                             pathname ===
@@ -2684,8 +2591,7 @@ const APSidebar = () => {
                                 pathname === "/admin/course/index" ||
                                 pathname ===
                                   `/admin/course/edit-course/${slug}` ||
-                                pathname ===
-                                  `/admin/course/${slug}/index` ||
+                                pathname === `/admin/course/${slug}/index` ||
                                 pathname ===
                                   `/admin/specializations/addspecialization/${slug}` ||
                                 pathname ===
@@ -2734,7 +2640,7 @@ const APSidebar = () => {
                     <MonitorIcon />
                   </div>
                   <p id="title">Contents</p>
-                  
+
                   <div id="icon2">
                     <ExpandMoreIcon />
                   </div>
@@ -2745,12 +2651,11 @@ const APSidebar = () => {
                 >
                   <div className="dropdown-item">
                     <ul className="SidebarListInternal">
-                      <Link href="/admin/pages/index">
+                      <Link href="/admin/content/index">
                         <li
                           className={`row ${
-                            pathname === "/admin/pages/index" ||
-                            pathname ===
-                              `/admin/pages/editPage/${slug}`
+                            pathname === "/admin/content/index" ||
+                            pathname === `/admin/content/edit-content/${slug}`
                               ? "active"
                               : ""
                           }`}
@@ -2762,9 +2667,9 @@ const APSidebar = () => {
                             id="innerTitle"
                             style={{
                               color:
-                                pathname === "/admin/pages/index" ||
+                                pathname === "/admin/content/index" ||
                                 pathname ===
-                                  `/admin/pages/editPage/${slug}`
+                                  `/admin/content/edit-content/${slug}`
                                   ? "#f3734c"
                                   : "inherit",
                             }}
@@ -2787,7 +2692,7 @@ const APSidebar = () => {
                     <EmailIcon />
                   </div>
                   <p id="title">Email Templates</p>
-                  
+
                   <div id="icon2">
                     <ExpandMoreIcon />
                   </div>
@@ -2804,8 +2709,7 @@ const APSidebar = () => {
                         <li
                           className={`row ${
                             pathname === "/admin/emailtemplates" ||
-                            pathname ===
-                              `/admin/pages/editPage/${slug}`
+                            pathname === `/admin/content/edit-content/${slug}`
                               ? "active"
                               : ""
                           }`}
@@ -2819,7 +2723,7 @@ const APSidebar = () => {
                               color:
                                 pathname === "/admin/emailtemplates" ||
                                 pathname ===
-                                  `/admin/pages/editPage/${slug}`
+                                  `/admin/content/edit-content/${slug}`
                                   ? "#f3734c"
                                   : "inherit",
                             }}
@@ -2840,7 +2744,7 @@ const APSidebar = () => {
                     <RateReviewIcon />
                   </div>
                   <p id="title">Blogs</p>
-                  
+
                   <div id="icon2">
                     <ExpandMoreIcon />
                   </div>
@@ -2849,12 +2753,11 @@ const APSidebar = () => {
                 <div className={`dropdown ${showBlogsDropdown ? "open" : ""}`}>
                   <div className="dropdown-item">
                     <ul className="SidebarListInternal">
-                      <Link href="/admin/blogs">
+                      <Link href="/admin/blogs/index">
                         <li
                           className={`row ${
-                            pathname === "/admin/blogs" ||
-                            pathname ===
-                              `/admin/blogs/editblogs/${slug}`
+                            pathname === "/admin/blogs/index" ||
+                            pathname === `/admin/blogs/edit-blog/${slug}`
                               ? "active"
                               : ""
                           }`}
@@ -2866,9 +2769,8 @@ const APSidebar = () => {
                             id="innerTitle"
                             style={{
                               color:
-                                pathname === "/admin/blogs" ||
-                                pathname ===
-                                  `/admin/blogs/editblogs/${slug}`
+                                pathname === "/admin/blogs/index" ||
+                                pathname === `/admin/blogs/edit-blog/${slug}`
                                   ? "#f3734c"
                                   : "inherit",
                             }}
@@ -2877,12 +2779,10 @@ const APSidebar = () => {
                           </p>
                         </li>
                       </Link>
-                      <Link href="/admin/blogs/addblogs">
+                      <Link href="/admin/blogs/add-blog">
                         <li
                           className={`row ${
-                            pathname === "/admin/blogs/addblogs"
-                              ? "active"
-                              : ""
+                            pathname === "/admin/blogs/add-blog" ? "active" : ""
                           }`}
                         >
                           <div id="innerIcon">
@@ -2892,7 +2792,7 @@ const APSidebar = () => {
                             id="innerTitle"
                             style={{
                               color:
-                                pathname === "/admin/blogs/addblogs"
+                                pathname === "/admin/blogs/add-blog"
                                   ? "#f3734c"
                                   : "inherit",
                             }}
@@ -2913,7 +2813,7 @@ const APSidebar = () => {
                     <ViewCarouselIcon />
                   </div>
                   <p id="title">Sliders</p>
-                  
+
                   <div id="icon2">
                     <ExpandMoreIcon />
                   </div>
@@ -2989,7 +2889,7 @@ const APSidebar = () => {
                     <CampaignIcon />
                   </div>
                   <p id="title">Announcement</p>
-                 
+
                   <div id="icon2">
                     <ExpandMoreIcon />
                   </div>
@@ -3045,7 +2945,8 @@ const APSidebar = () => {
                             id="innerTitle"
                             style={{
                               color:
-                                pathname === "/admin/announcements/add-announcement"
+                                pathname ===
+                                "/admin/announcements/add-announcement"
                                   ? "#f3734c"
                                   : "inherit",
                             }}
@@ -3066,7 +2967,7 @@ const APSidebar = () => {
                     <FindInPageIcon />
                   </div>
                   <p id="title">Keywords</p>
-                  
+
                   <div id="icon2">
                     <ExpandMoreIcon />
                   </div>
@@ -3080,9 +2981,12 @@ const APSidebar = () => {
                       <Link href="/admin/keywords/search-keywords/index">
                         <li
                           className={`row ${
-                            pathname === "/admin/keywords/search-keywords/index" ||
-                            pathname === "/admin/keywords/search-keywords/add-search-keyword" ||
-                            pathname === `/admin/keywords/search-keywords/edit-search-keyword/${slug}`
+                            pathname ===
+                              "/admin/keywords/search-keywords/index" ||
+                            pathname ===
+                              "/admin/keywords/search-keywords/add-search-keyword" ||
+                            pathname ===
+                              `/admin/keywords/search-keywords/edit-search-keyword/${slug}`
                               ? "active"
                               : ""
                           }`}
@@ -3094,8 +2998,10 @@ const APSidebar = () => {
                             id="innerTitle"
                             style={{
                               color:
-                                pathname === "/admin/keywords/search-keywords/index" ||
-                                pathname === "/admin/keywords/search-keywords/add-search-keyword" ||
+                                pathname ===
+                                  "/admin/keywords/search-keywords/index" ||
+                                pathname ===
+                                  "/admin/keywords/search-keywords/add-search-keyword" ||
                                 pathname ===
                                   `/admin/keywords/search-keywords/edit-search-keyword/${slug}`
                                   ? "#f3734c"
@@ -3110,7 +3016,8 @@ const APSidebar = () => {
                         <li
                           className={`row ${
                             pathname === "/admin/keywords/job-keywords/index" ||
-                            pathname === "/admin/keywords/job-keywords/add-job-keyword" ||
+                            pathname ===
+                              "/admin/keywords/job-keywords/add-job-keyword" ||
                             pathname ===
                               `/admin/keywords/job-keywords/edit-job-keyword/${slug}`
                               ? "active"
@@ -3124,7 +3031,8 @@ const APSidebar = () => {
                             id="innerTitle"
                             style={{
                               color:
-                                pathname === "/admin/keywords/job-keywords/index" ||
+                                pathname ===
+                                  "/admin/keywords/job-keywords/index" ||
                                 pathname ===
                                   "/admin/keywords/job-keywords/add-job-keyword" ||
                                 pathname ===
@@ -3140,7 +3048,8 @@ const APSidebar = () => {
                       <Link href="/admin/keywords/requested-keywords/index">
                         <li
                           className={`row ${
-                            pathname === "/admin/keywords/requested-keywords/index"
+                            pathname ===
+                            "/admin/keywords/requested-keywords/index"
                               ? "active"
                               : ""
                           }`}
@@ -3152,7 +3061,8 @@ const APSidebar = () => {
                             id="innerTitle"
                             style={{
                               color:
-                                pathname === "/admin/keywords/requested-keywords/index"
+                                pathname ===
+                                "/admin/keywords/requested-keywords/index"
                                   ? "#f3734c"
                                   : "inherit",
                             }}
@@ -3250,11 +3160,9 @@ const APSidebar = () => {
                           <p id="innerTitle">Change Email</p>
                         </li>
                       </Link>
-                      
                     </ul>
                   </div>
                 </div>
-                
 
                 {userAccess[0]?.Module === 1 && (
                   <>
@@ -3436,7 +3344,6 @@ const APSidebar = () => {
                   </>
                 )}
 
-               
                 {userAccess[8]?.Module === 1 && (
                   <>
                     <li
@@ -3617,7 +3524,6 @@ const APSidebar = () => {
                     </div>
                   </>
                 )}
-                
 
                 {userAccess[4]?.Module === 1 && (
                   <>
@@ -3674,7 +3580,6 @@ const APSidebar = () => {
                     </div>
                   </>
                 )}
-               
 
                 {userAccess[5]?.Module === 1 && (
                   <>
@@ -3760,7 +3665,7 @@ const APSidebar = () => {
                     >
                       <div className="dropdown-item">
                         <ul className="SidebarListInternal">
-                          <Link href="/admin/pages/index">
+                          <Link href="/admin/content/index">
                             <li className="row">
                               <div id="innerIcon">
                                 <RadioButtonCheckedIcon />
@@ -3847,7 +3752,7 @@ const APSidebar = () => {
                     >
                       <div className="dropdown-item">
                         <ul className="SidebarListInternal">
-                          <Link href="/admin/blogs">
+                          <Link href="/admin/blogs/index">
                             <li className="row">
                               <div id="innerIcon">
                                 <RadioButtonCheckedIcon />
@@ -3857,7 +3762,7 @@ const APSidebar = () => {
                           </Link>
                           {userAccess[6]?.Add === 1 && (
                             <>
-                              <Link href="/admin/blogs/addblogs">
+                              <Link href="/admin/blogs/add-blog">
                                 <li className="row">
                                   <div id="innerIcon">
                                     <RadioButtonCheckedIcon />
@@ -3872,8 +3777,6 @@ const APSidebar = () => {
                     </div>
                   </>
                 )}
-
-               
               </ul>
             </div>
           ) : (
@@ -4704,7 +4607,7 @@ const APSidebar = () => {
                 >
                   <div className="dropdown-item">
                     <ul className="SidebarListInternal">
-                      <Link href="/admin/pages/index">
+                      <Link href="/admin/content/index">
                         <li className="row">
                           <div id="innerIcon">
                             <RadioButtonCheckedIcon />
@@ -4778,7 +4681,7 @@ const APSidebar = () => {
                 <div className={`dropdown ${showBlogsDropdown ? "open" : ""}`}>
                   <div className="dropdown-item">
                     <ul className="SidebarListInternal">
-                      <Link href="/admin/blogs">
+                      <Link href="/admin/blogs/index">
                         <li className="row">
                           <div id="innerIcon">
                             <RadioButtonCheckedIcon />
@@ -4786,7 +4689,7 @@ const APSidebar = () => {
                           <p id="innerTitle">Blog List</p>
                         </li>
                       </Link>
-                      <Link href="/admin/blogs/addblogs">
+                      <Link href="/admin/blogs/add-blog">
                         <li className="row">
                           <div id="innerIcon">
                             <RadioButtonCheckedIcon />

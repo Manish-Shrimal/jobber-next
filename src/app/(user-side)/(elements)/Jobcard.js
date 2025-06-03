@@ -230,15 +230,20 @@ const JobCard = (props) => {
           {props.logo ? (
             <>
               <div className="JcardFooterItem1DynamicImage">
-                <Image width={100} height={100} src={props.logo} alt="" />
+                <Image
+                  width={70}
+                  height={70}
+                  src={props.logo}
+                  alt={props.logo}
+                />
               </div>
             </>
           ) : (
             <>
               <div className="JcardFooterItem1">
                 <Image
-                  width={100}
-                  height={100}
+                  width={70}
+                  height={70}
                   src="/Images/dummy-logo.png"
                   alt=""
                 />

@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link"; // ✅ CORRECT
-
 import axios from "axios";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useTranslation } from "react-i18next";
@@ -17,14 +16,10 @@ import BaseApi from "@/app/(api)/BaseApi";
 import Image from "next/image";
 import { useRecoilValue } from "recoil";
 import { configState } from "@/app/lib/atoms/ConfigAtom";
-// import { useConfig } from '@/app/lib/ConfigContext';
 
 const Page = () => {
-  // const config = useRecoilValue(configState);
-  // const config = useConfig();
-  // console.log('config', config)
 
-  // const config = useRecoilValue(configState);
+  const config = useRecoilValue(configState);
   // console.log('Login: Current configState value:', config);
 
   const { t } = useTranslation("common");
@@ -44,14 +39,13 @@ const Page = () => {
   const [loading, setLoading] = useState(false);
   const [hoverLoginColor, setHoverLoginColor] = useState(false);
 
-  const primaryColor = Cookies.get("primaryColor") || "#007bff";
-  const secondaryColor = Cookies.get("secondaryColor") || "#005a9c";
-  const siteLogo = Cookies.get("siteLogo") || "/Images/logo.png";
+  const primaryColor = config.primary_color || "#007bff";
+  const secondaryColor = config.secondary_color || "#005a9c";
+  const siteLogo = config.site_logo || "/Images/logo.png";
 
-  // const captchaKey = config.captcha_public_key;
-  // const captchaKey = config?.captcha_public_key || "";
+  const captchaKey = config.captcha_public_key;
 
-  const captchaKey = Cookies.get("captchaKey") || "";
+  // const captchaKey = Cookies.get("captchaKey") || "";
 
   const EMAIL_REGEX = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 

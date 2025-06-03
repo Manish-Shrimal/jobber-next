@@ -63,7 +63,7 @@ const APNavBar = () => {
           <Link href="/admin/dashboard">
             <Navbar.Brand>
               {siteLogo && (
-                <Image width={50} height={10} className="adminNavLogo" src={siteLogo} alt="Logo" />
+                <Image width={170} height={50} unoptimized={true} className="adminNavLogo" src={siteLogo} alt="Logo" />
               )}
               {!siteLogo && (
                 <Image 
@@ -90,14 +90,14 @@ const APNavBar = () => {
 
                 <Link href="/admin/employer-list" className="SearchIcon">
                   <i>
-                    <Image width={20} height={20} src="/Images/adminpanel/search.svg" alt="Search" />
+                    <Image width={40} height={25} src="/Images/adminpanel/search.svg" alt="Search" />
                   </i>
                 </Link>
-                <div className="bellIndicator">
+                <Link href="/admin/dashboard" className="bellIndicator">
                   <i>
                     <Image
                       width={20}
-                      height={120}
+                      height={20}
                       className="bell"
                       src="/Images/adminpanel/bell.svg"
                       alt="Bell"
@@ -112,7 +112,7 @@ const APNavBar = () => {
                       alt="Bell"
                     />
                   </i>
-                </div>
+                </Link>
               </div>
 
               <div className="part2">
@@ -125,7 +125,7 @@ const APNavBar = () => {
                 </div>
                 <div className="APNavInner3">
                   <div className="dropdown">
-                    <button
+                    <Link href="/admin/dashboard"
                       className="dropdown-toggle SearchIcon"
                       type="button"
                       id="dropdownMenuButton1"
@@ -134,7 +134,7 @@ const APNavBar = () => {
                     >
                       {adminID === "1" && "Admin"}
                       {adminID !== "1" && adminName}
-                    </button>
+                    </Link>
                     <ul
                       className="dropdown-menu custom-dropdown-menu"
                       aria-labelledby="dropdownMenuButton1"

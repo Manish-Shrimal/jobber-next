@@ -7,7 +7,6 @@ import ClientLayout from "@/app/(user-side)/(elements)/ClientLayout";
 import { RecoilRoot } from "recoil";
 import ConfigInitializer from "./components/ConfigInitializer";
 import BootstrapClient from "./components/BoostrapClient";
-import GetConstants from "./components/GetConstants"
 
 
 export default function RootLayout({ children }) {
@@ -27,7 +26,7 @@ export default function RootLayout({ children }) {
       >
         <RecoilRoot>
         <ClientLayout>
-          <GetConstants />
+          {/* <GetConstants /> */}
           
           <BootstrapClient />
             <ConfigInitializer />
