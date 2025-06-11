@@ -13,19 +13,21 @@ import HTMLReactParser from "html-react-parser";
 import Select from "react-select";
 import Swal from "sweetalert2";
 import Cookies from "js-cookie";
+import dynamic from "next/dynamic";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { IconButton } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { useTranslation } from "react-i18next";
-import ReactQuill from "react-quill";
+// import ReactQuill from "react-quill";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { configState } from "@/app/lib/atoms/ConfigAtom";
 import { useRecoilValue } from "recoil";
 
 import "react-quill/dist/quill.snow.css"; // import styles
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 const CreateJob = () => {
   const config = useRecoilValue(configState);
   const editor = useRef(null);
@@ -292,12 +294,19 @@ const CreateJob = () => {
 
   const handleClick = async () => {
     // console.log(totalData);
-    var skills = document.getElementsByName("skill");
+    // var skills = document.getElementsByName("skill");
     var skillArray = [];
 
+    // skills.forEach((element) => {
+    //   skillArray.push(element.value);
+    // });
+
+    if (typeof window !== "undefined") {
+    const skills = document.getElementsByName("skill");
     skills.forEach((element) => {
       skillArray.push(element.value);
     });
+  }
     // console.log(skillArray);
 
     // console.log(jobData, "after strong skill");
@@ -333,10 +342,10 @@ const CreateJob = () => {
       }
       if (jobData.contact_name === "") {
         newErrors.contact_name = t("employerCreateJob.contactNameRequired");
-        const inputElement = document.getElementById("contact_name_input");
-        if (inputElement) {
-          inputElement.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
+        // const inputElement = document.getElementById("contact_name_input");
+        // if (inputElement) {
+        //   inputElement.scrollIntoView({ behavior: "smooth", block: "start" });
+        // }
         // window.scrollTo(0, 0);
       }
       if (totalData.contact_number === "") {
@@ -352,10 +361,10 @@ const CreateJob = () => {
         newErrors.designation = t("employerCreateJob.workingRelationRequired");
         // window.scrollTo(0, 0);
         // Scroll to the input element
-        const inputElement = document.getElementById("designation_input");
-        if (inputElement) {
-          inputElement.scrollIntoView({ behavior: "smooth" });
-        }
+        // const inputElement = document.getElementById("designation_input");
+        // if (inputElement) {
+        //   inputElement.scrollIntoView({ behavior: "smooth" });
+        // }
       }
       if (jobData.experience === "") {
         newErrors.experience = t("employerCreateJob.experienceRequired");

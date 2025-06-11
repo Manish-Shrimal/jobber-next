@@ -7,9 +7,7 @@ import NavBar from "@/app/(user-side)/(elements)/NavBar";
 import axios from "axios";
 import ApiKey from "@/app/(api)/ApiKey";
 import BaseApi from "@/app/(api)/BaseApi";
-// import Multiselect from "multiselect-react-dropdown";
-import JoditEditor from "jodit-react";
-import Select from "react-select";
+// import Select from "react-select";
 import { useRef } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -18,10 +16,16 @@ import Swal from "sweetalert2";
 import Cookies from "js-cookie";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { useTranslation } from "react-i18next";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css"; // import styles
+// import ReactQuill from "react-quill";
 import { configState } from "@/app/lib/atoms/ConfigAtom";
 import { useRecoilValue } from "recoil";
+import dynamic from "next/dynamic";
+
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+
+import "react-quill/dist/quill.snow.css"; // import styles
+const Select = dynamic(() => import("react-select"), { ssr: false });
+
 
 const Page = () => {
   const config = useRecoilValue(configState);
@@ -226,23 +230,41 @@ const Page = () => {
     setDocDownloadPath(path + doc);
     setDownloadActive(true);
   };
-  useEffect(() => {
-    if (downloadActive && docDownloadPath) {
-      // Create a hidden link element
-      const link = document.createElement("a");
-      link.style.display = "none";
-      link.href = docDownloadPath;
-      link.download = "generated-cv.doc";
-      document.body.appendChild(link);
+  // useEffect(() => {
+  //   if (downloadActive && docDownloadPath) {
+  //     // Create a hidden link element
+  //     const link = document.createElement("a");
+  //     link.style.display = "none";
+  //     link.href = docDownloadPath;
+  //     link.download = "generated-cv.doc";
+  //     document.body.appendChild(link);
 
-      // Trigger a click on the link
-      link.click();
+  //     // Trigger a click on the link
+  //     link.click();
 
-      // Clean up
-      document.body.removeChild(link);
-      setDownloadActive(false);
-    }
-  }, [downloadActive, docDownloadPath]);
+  //     // Clean up
+  //     document.body.removeChild(link);
+  //     setDownloadActive(false);
+  //   }
+  // }, [downloadActive, docDownloadPath]);
+
+//   useEffect(() => {
+//   if (downloadActive && docDownloadPath && typeof window !== 'undefined') {
+//     // Create a hidden link element
+//     const link = document.createElement("a");
+//     link.style.display = "none";
+//     link.href = docDownloadPath;
+//     link.download = "generated-cv.doc";
+//     document.body.appendChild(link);
+
+//     // Trigger a click on the link
+//     link.click();
+
+//     // Clean up
+//     document.body.removeChild(link);
+//     setDownloadActive(false);
+//   }
+// }, [downloadActive, docDownloadPath]);
 
   const handleDocumentsRemove = async (slug) => {
     try {
@@ -443,15 +465,17 @@ const Page = () => {
   };
 
   const handleClick = async () => {
-    var skills = document.getElementsByName("skill");
-    var skillArray = [];
-    skills.forEach((element) => {
-      skillList.forEach((skill) => {
-        if (skill.id === parseInt(element.value)) {
-          skillArray.push(skill.name);
-        }
+    if (typeof window !== "undefined") {
+      var skills = document.getElementsByName("skill");
+      var skillArray = [];
+      skills.forEach((element) => {
+        skillList.forEach((skill) => {
+          if (skill.id === parseInt(element.value)) {
+            skillArray.push(skill.name);
+          }
+        });
       });
-    });
+    }
 
     // return false;
 
@@ -463,10 +487,7 @@ const Page = () => {
       categoryArray.push(element.value);
     });
 
-    // setUpdatedSkill(skillArray);
-    // setUpdatedCat(categoryArray);
 
-    // return false;
 
     try {
       const newErrors = {};
@@ -1229,19 +1250,7 @@ const Page = () => {
                         {t("jobseekerEditProfile.aboutYourself")}
                         <span className="RedStar">*</span>
                       </label>
-                      {/* <JoditEditor
-                        ref={editor}
-                        name="company_about"
-                        value={editProfile.company_about}
-                        onChange={(company_about) =>
-                          handleChange({
-                            target: {
-                              value: company_about,
-                              name: "company_about",
-                            },
-                          })
-                        }
-                      /> */}
+                    
                       <ReactQuill
                         theme="snow"
                         value={editProfile.company_about}
@@ -1297,126 +1306,7 @@ const Page = () => {
                         )}
                       />
                     </div>
-                    {/* <div className="form-outline mb-5 DashBoardInputBx">
-                      <label htmlFor="formFile" className="form-label">
-                        {t("jobseekerEditProfile.cvDoc/certificate")}
-                      </label>
-                      <input
-                        type="file"
-                        id="formFile"
-                        className="form-control"
-                        name="file"
-                        multiple
-                        onChange={(e) => {
-                          const files = Array.from(e.target.files);
-
-                          // Capture the selected file names
-                          const fileNames = files.map((file) => file.name);
-                          setSelectedFileName(fileNames);
-
-                          // Convert each selected file to base64 encoding
-                          Promise.all(
-                            files.map((file) => convertFileToBase64(file))
-                          )
-                            .then((base64Array) => {
-                              setSelectedCV(base64Array);
-                            })
-                            .catch((error) => {
-                              console.error(
-                                "Error converting files to base64:",
-                                error
-                              );
-                            });
-                        }}
-                      />
-
-                      <input
-                        type="file"
-                        id="formFile"
-                        className="form-control"
-                        name="file"
-                        multiple
-                        onChange={handleCVSelection}
-                      />
-
-                      <div id="emailHelp" className="form-text">
-                        {t("jobseekerEditProfile.belowTxt1")}
-                      </div>
-                      <div id="emailHelp" className="form-text">
-                        {t("jobseekerEditProfile.belowTxt2")}
-                      </div>
-                    </div> */}
-
-                    {/* {oldCertificates.length > 0 && (
-                      <div className="form-outline mb-5 DashBoardInputBx">
-                        <label htmlFor="formFile" className="form-label">
-                          {t("jobseekerEditProfile.existingCertificate")}
-                        </label>
-                        <div className="ChoosPlanBx checkCertificate">
-                          <div class="EPJobseekerCertificatesDetails">
-                            <ul>
-                              {oldCertificates.map((i, index) => {
-                                return (
-                                  <>
-                                    <li>
-                                      
-                                      <i>
-                                        <img
-                                          className="JSmyProfileCertificateImage"
-                                          src={i.image}
-                                          alt="icon"
-                                        />
-                                      </i>
-                                    </li>
-                                  </>
-                                );
-                              })}
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-                    {oldDocuments.length > 0 && (
-                      <>
-                        <div className="mb-5">
-                          <div className="form-outline DashBoardInputBx">
-                            <label htmlFor="formFile" className="form-label">
-                              {t("jobseekerEditProfile.existingDocument")}
-                            </label>
-                            <div className="ChoosPlanBx">
-                              <div class="EPJobseekerCertificatesDetails">
-                                <ul>
-                                  {oldDocuments.map((i, index) => {
-                                    return (
-                                      <>
-                                        <li>
-                                          <i
-                                            class="fa-regular fa-circle-xmark jsprofileCross"
-                                            onClick={() =>
-                                              handleDocumentsRemove(i.slug)
-                                            }
-                                          ></i>
-                                          <i
-                                            onClick={() =>
-                                              handleDocDownload(i.path, i.doc)
-                                            }
-                                          >
-                                            {i.doc_sub?.substring(0, 10)}
-                                          </i>
-                                        </li>
-                                      </>
-                                    );
-                                  })}
-                                </ul>
-                              </div>
-                            </div>
-                          </div>
-                          <div id="emailHelp" className="form-text">
-                            {t("jobseekerEditProfile.belowTxt3")}
-                          </div>
-                        </div>
-                      </>
-                    )} */}
+                    
 
                     <div className="form-outline mb-5 DashBoardInputBx">
                       <label htmlFor="formFile" className="form-label">

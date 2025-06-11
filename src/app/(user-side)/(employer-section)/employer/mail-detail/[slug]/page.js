@@ -10,9 +10,10 @@ import ApiKey from "@/app/(api)/ApiKey";
 import BaseApi from "@/app/(api)/BaseApi";
 import { useRouter } from "next/navigation";
 import NavBar from "@/app/(user-side)/(elements)/NavBar";
-import Sidebar from "../Sidebar/Sidebar";
+// import Sidebar from "@/app/(employer-section)/employer/Sidebar/Sidebar";
 import Footer from "@/app/(user-side)/(elements)/Footer";
 import Image from "next/image";
+import Sidebar from "../../Sidebar/Sidebar";
 
 const Page = ({ params }) => {
   const config = useRecoilValue(configState);

@@ -11,17 +11,25 @@ import axios from "axios";
 import BaseApi from "@/app/(api)/BaseApi";
 import ApiKey from "@/app/(api)/ApiKey";
 
-import HTMLReactParser from "html-react-parser";
-import Select from "react-select";
+// import Select from "react-select";
 import Swal from "sweetalert2";
 import Cookies from "js-cookie";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css"; // import styles
+import dynamic from "next/dynamic";
+// import ReactQuill from "react-quill";
 import APFooter from "@/app/(admin-side)/admin/Components/APFooter";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+import "react-quill/dist/quill.snow.css"; // import styles
+
+
+const Select = dynamic(() => import("react-select"), { ssr: false });
+import HTMLReactParser from "html-react-parser";
+// const Select = dynamic(() => import("react-select"), { ssr: false });
+
+
 const APAddJob = () => {
   const [errors, setErrors] = useState({
     user_id: "",
@@ -210,12 +218,20 @@ const APAddJob = () => {
   }, []);
 
   const handleClick = async () => {
-    var skills = document.getElementsByName("skill");
+    // var skills = document.getElementsByName("skill");
+    
     var skillArray = [];
 
-    skills.forEach((element) => {
-      skillArray.push(element.value);
-    });
+    // skills.forEach((element) => {
+    //   skillArray.push(element.value);
+    // });
+
+    if (typeof window !== "undefined") {
+      const skills = document.getElementsByName("skill");
+      skills.forEach((element) => {
+        skillArray.push(element.value);
+      });
+    }
     // console.log(skillArray);
     setJobData({ ...jobData, skill: skillArray });
     // console.log(jobData);

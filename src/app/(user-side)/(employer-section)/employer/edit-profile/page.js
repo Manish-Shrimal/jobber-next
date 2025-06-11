@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useEffect, useState } from "react";
 import NavBar from "@/app/(user-side)/(elements)/NavBar";
 import Footer from "@/app/(user-side)/(elements)/Footer";
@@ -7,16 +7,17 @@ import Sidebar from "../Sidebar/Sidebar";
 import { useRef } from "react";
 // import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import dynamic from "next/dynamic";
 import BaseApi from "@/app/(api)/BaseApi";
 import ApiKey from "@/app/(api)/ApiKey";
 import Swal from "sweetalert2";
 import Cookies from "js-cookie";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { useTranslation } from "react-i18next";
-import ReactQuill from "react-quill";
-import Link from "next/link"
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import "react-quill/dist/quill.snow.css"; // import styles
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 const EditProfile = () => {
   const editor = useRef(null);
   const [profileData, setProfileData] = useState([]);
@@ -38,8 +39,7 @@ const EditProfile = () => {
   const [loading, setLoading] = useState(false);
 
   const tokenKey = Cookies.get("employerToken");
-    const router = useRouter();
-
+  const router = useRouter();
 
   const getData = async () => {
     try {
@@ -96,14 +96,16 @@ const EditProfile = () => {
   };
 
   const scrollToElement = (element) => {
-    let ele = document.getElementById(element);
-    if (ele) {
-      ele.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-        inline: "nearest",
-        blockOffset: 20,
-      });
+    if (typeof window !== "undefined") {
+      let ele = document.getElementById(element);
+      if (ele) {
+        ele.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+          inline: "nearest",
+          blockOffset: 20,
+        });
+      }
     } else {
       // console.log("element not found");
     }
@@ -296,9 +298,8 @@ const EditProfile = () => {
   useEffect(() => {
     // Check if tokenKey is not present
 
-      getData();
-      window.scrollTo(0, 0);
-    
+    getData();
+    window.scrollTo(0, 0);
   }, []);
 
   // Code for loading Location
