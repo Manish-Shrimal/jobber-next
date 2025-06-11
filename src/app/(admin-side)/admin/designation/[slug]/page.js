@@ -111,7 +111,7 @@ const Page = () => {
               confirmButtonText: "Close",
             });
           
-            router.push("/admin/designation");
+            router.push("/admin/designation/index");
           } else {
             Swal.fire({
               title: response.data.message,
@@ -167,7 +167,7 @@ const Page = () => {
                     Dashboard
                   </Link>
                   <Link
-                    href="/admin/designation"
+                    href="/admin/designation/index"
                     underline="hover"
                     color="inherit"
                   >
@@ -210,7 +210,7 @@ const Page = () => {
                   <button
                     type="button"
                     className="btn btn-primary button2"
-                    onClick={() =>  router.push("/admin/designation")}
+                    onClick={() =>  router.push("/admin/designation/index")}
                   >
                     CANCEL
                   </button>

@@ -355,6 +355,7 @@ const Page = () => {
   const [aboutUs, setAboutUs] = useState([]);
   const [t, i18n] = useTranslation("common");
   const config = useRecoilValue(configState);
+  console.log("Config:", config); // Debug output
   // const primaryColor = config.primary_color || "#007bff";
   const secondaryColor = config.secondary_color || "#005a9c";
   // const siteLogo = config.site_logo || "/Images/logo.png";

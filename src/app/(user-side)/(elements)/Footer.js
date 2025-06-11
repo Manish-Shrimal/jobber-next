@@ -505,6 +505,9 @@ import Cookies from "js-cookie";
 import { useTranslation } from "react-i18next";
 import { FaFacebookSquare, FaPinterest, FaLinkedin } from "react-icons/fa";
 import { BsInstagram } from "react-icons/bs";
+import Image from "next/image";
+import { configState } from "@/app/lib/atoms/ConfigAtom";
+import { useRecoilValue } from "recoil";
 
 const Footer = () => {
   const [isQuickLinksVisible, setIsQuickLinksVisible] = useState(false);
@@ -512,12 +515,17 @@ const Footer = () => {
   const [isJobseekerLinksVisible, setIsJobseekerLinksVisible] = useState(false);
   const [screenWidth, setScreenWidth] = useState(0);
 
-  const siteTitle = Cookies.get("siteTitle") || "YourSite";
+  // const siteTitle = Cookies.get("siteTitle") || "YourSite";
   const siteLink = Cookies.get("siteLink") || "/";
   const faceboookLink = Cookies.get("fbLink") || "#";
   const instagramLink = Cookies.get("instaLink") || "#";
   const pinterestLink = Cookies.get("pinterestLink") || "#";
   const linkedInLink = Cookies.get("linkedInLink") || "#";
+  
+  const config = useRecoilValue(configState);
+  const siteTitle = config.siteTitle;
+  console.log(siteTitle)
+
 
   // Correct destructuring here:
 // ✅ Correct

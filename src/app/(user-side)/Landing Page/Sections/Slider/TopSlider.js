@@ -247,9 +247,9 @@ const TopSlider = React.memo(
     };
 
     const getUploadCVLink = () => {
-      if (tokenKey && userType === "candidate") return "/candidates/addcvdocuments";
+      if (tokenKey && userType === "candidate") return "/jobseeker/add-cv-document";
       if (tokenKey && userType === "recruiter") return ""; // Empty for onClick handler
-      return "/user/jobseekerlogin";
+      return "/user/jobseeker-login";
     };
 
     // Animation variants for fade-in and slide-up

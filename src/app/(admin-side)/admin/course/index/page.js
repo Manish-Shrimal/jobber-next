@@ -682,7 +682,7 @@ const Page = () => {
                                     onClick={() =>
                                       router.push(
                                         // `/admin/course/index/${i.slug}/index`
-                                        `/admin/course/${i.slug}/index`
+                                        `/admin/course/${i.slug}/specialization-list`
 
                                       )
                                     }

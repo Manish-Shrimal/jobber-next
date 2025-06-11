@@ -105,7 +105,7 @@ const Page = () => {
               confirmButtonText: "Close",
             });
          
-            router.push("/admin/designation");
+            router.push("/admin/designation/index");
           } else {
             Swal.fire({
               title: response.data.message,
@@ -161,7 +161,7 @@ const Page = () => {
                     Dashboard
                   </Link>
                   <Link
-                    href="/admin/designation"
+                    href="/admin/designation/index"
                     underline="hover"
                     color="inherit"
                   >

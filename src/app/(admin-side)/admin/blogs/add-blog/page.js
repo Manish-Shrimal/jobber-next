@@ -5,22 +5,24 @@ import APSidebar from "@/app/(admin-side)/admin/Components/APSidebar";
 import Typography from "@mui/material/Typography";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import dynamic from "next/dynamic";
 import axios from "axios";
 import BaseApi from "@/app/(api)/BaseApi";
 import ApiKey from "@/app/(api)/ApiKey";
 import Swal from "sweetalert2";
-import Image from "next/image"
-import JoditEditor from "jodit-react";
+import Image from "next/image";
+// import JoditEditor from "jodit-react";
 import { useRef } from "react";
 import Cookies from "js-cookie";
 
 import { EditorState, convertToRaw, ContentState } from "draft-js";
-import { Editor } from "react-draft-wysiwyg";
-import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+// import { Editor } from "react-draft-wysiwyg";
+// import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+
 import APFooter from "@/app/(admin-side)/admin/Components/APFooter";
 
 import { useRouter } from "next/navigation";
-import Link from "next/link"
+import Link from "next/link";
 
 const Page = () => {
   const [userData, setUserData] = useState({
@@ -45,9 +47,17 @@ const Page = () => {
   const tokenKey = Cookies.get("token");
   const adminID = Cookies.get("adminID");
 
-         const router = useRouter();
+  const router = useRouter();
 
-  const editor = useRef(null);
+  // const editor = useRef(null);
+  const Editor = dynamic(
+    () => import("react-draft-wysiwyg").then((mod) => mod.Editor),
+    {
+      ssr: false,
+    }
+  );
+
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -265,8 +275,6 @@ const Page = () => {
     // window.location.reload();
   };
 
-
-
   return (
     <>
       <APNavBar />
@@ -292,7 +300,11 @@ const Page = () => {
                   >
                     Dashboard
                   </Link>
-                  <Link href="/admin/blogs/index" underline="hover" color="inherit">
+                  <Link
+                    href="/admin/blogs/index"
+                    underline="hover"
+                    color="inherit"
+                  >
                     Blogs
                   </Link>
 
@@ -385,9 +397,9 @@ const Page = () => {
                     {selectedImage && (
                       <div>
                         <Image
-                        width={200}
-                        height={200}
-                        unoptimized={true}
+                          width={200}
+                          height={200}
+                          unoptimized={true}
                           className="selectedInputImage"
                           src={selectedImage}
                           alt="Selected"
@@ -442,8 +454,8 @@ const Page = () => {
                     />
                     <div id="emailHelp" class="form-text">
                       Note.: Meta details are important please fill these
-                      information. If you don&apos;t filled it by default information
-                      will be show.
+                      information. If you don&apos;t filled it by default
+                      information will be show.
                     </div>
                   </div>
                   <button
@@ -464,7 +476,6 @@ const Page = () => {
               </form>
             </div>
             <APFooter />
-
           </>
         )}
       </div>

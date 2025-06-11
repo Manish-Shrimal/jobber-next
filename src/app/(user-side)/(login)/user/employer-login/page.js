@@ -119,7 +119,7 @@ const Page = () => {
           return;
         }
 
-        Cookies.set("tokenClient", token, { expires: 7 });
+        Cookies.set("employerToken", token, { expires: 7 });
         Cookies.set("fname", fname, { expires: 7 });
         Cookies.set("user_type", userType, { expires: 7 });
 
@@ -137,7 +137,7 @@ const Page = () => {
           },
         });
 
-        router.push("/user/myprofile");
+        router.push("/employer/my-profile");
         setIsCaptchaVerified(false);
       } else if (status === 500) {
         Swal.fire({

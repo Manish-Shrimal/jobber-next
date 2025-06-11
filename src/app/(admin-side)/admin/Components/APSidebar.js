@@ -591,7 +591,7 @@ const APSidebar = () => {
                     >
                       <div className="dropdown-item">
                         <ul className="SidebarListInternal">
-                          <Link href="/admin/designation">
+                          <Link href="/admin/designation/index">
                             <li className="row">
                               <div id="innerIcon">
                                 <RadioButtonCheckedIcon />
@@ -640,13 +640,13 @@ const APSidebar = () => {
                     >
                       <div className="dropdown-item">
                         <ul className="SidebarListInternal">
-                          <Link href="/admin/jobs">
+                          <Link href="/admin/job/index">
                             <li
                               className={`row ${
-                                pathname === "/admin/jobs" ||
-                                pathname === `/admin/jobs/editjob/${slug}` ||
-                                pathname === `/admin/jobs/candidates/${slug}` ||
-                                pathname === `/admin/jobs/addjob/${slug}`
+                                pathname === "/admin/job/index" ||
+                                pathname === `/admin/job/edit-job/${slug}` ||
+                                pathname === `/admin/job/candidates/${slug}` ||
+                                pathname === `/admin/job/add-job/${slug}`
                                   ? "active"
                                   : ""
                               }`}
@@ -658,12 +658,12 @@ const APSidebar = () => {
                                 id="innerTitle"
                                 style={{
                                   color:
-                                    pathname === "/admin/jobs" ||
+                                    pathname === "/admin/job/index" ||
                                     pathname ===
-                                      `/admin/jobs/editjob/${slug}` ||
+                                      `/admin/job/edit-job/${slug}` ||
                                     pathname ===
-                                      `/admin/jobs/candidates/${slug}` ||
-                                    pathname === `/admin/jobs/addjob/${slug}`
+                                      `/admin/job/candidates/${slug}` ||
+                                    pathname === `/admin/job/add-job/${slug}`
                                       ? "#f3734c"
                                       : "inherit",
                                 }}
@@ -675,10 +675,10 @@ const APSidebar = () => {
 
                           {userAccess[3]?.Add === 1 && (
                             <>
-                              <Link href="/admin/jobs/addjob">
+                              <Link href="/admin/job/add-job">
                                 <li
                                   className={`row ${
-                                    pathname === "/admin/jobs/addjob"
+                                    pathname === "/admin/job/add-job"
                                       ? "active"
                                       : ""
                                   }`}
@@ -690,7 +690,7 @@ const APSidebar = () => {
                                     id="innerTitle"
                                     style={{
                                       color:
-                                        pathname === "/admin/jobs/addjob"
+                                        pathname === "/admin/job/add-job"
                                           ? "#f3734c"
                                           : "inherit",
                                     }}
@@ -699,10 +699,10 @@ const APSidebar = () => {
                                   </p>
                                 </li>
                               </Link>
-                              <Link href="/admin/jobs/import">
+                              <Link href="/admin/job/import">
                                 <li
                                   className={`row ${
-                                    pathname === "/admin/jobs/import"
+                                    pathname === "/admin/job/import"
                                       ? "active"
                                       : ""
                                   }`}
@@ -714,7 +714,7 @@ const APSidebar = () => {
                                     id="innerTitle"
                                     style={{
                                       color:
-                                        pathname === "/admin/jobs/import"
+                                        pathname === "/admin/job/import"
                                           ? "#f3734c"
                                           : "inherit",
                                     }}
@@ -723,10 +723,10 @@ const APSidebar = () => {
                                   </p>
                                 </li>
                               </Link>
-                              <Link href="/admin/jobs/csv-upload">
+                              <Link href="/admin/job/csv-upload">
                                 <li
                                   className={`row ${
-                                    pathname === "/admin/jobs/csv-upload"
+                                    pathname === "/admin/job/csv-upload"
                                       ? "active"
                                       : ""
                                   }`}
@@ -738,7 +738,7 @@ const APSidebar = () => {
                                     id="innerTitle"
                                     style={{
                                       color:
-                                        pathname === "/admin/jobs/csv-upload"
+                                        pathname === "/admin/job/csv-upload"
                                           ? "#f3734c"
                                           : "inherit",
                                     }}
@@ -747,10 +747,10 @@ const APSidebar = () => {
                                   </p>
                                 </li>
                               </Link>
-                              <Link href="/admin/jobs/importlist">
+                              <Link href="/admin/job/importlist">
                                 <li
                                   className={`row ${
-                                    pathname === "/admin/jobs/importlist"
+                                    pathname === "/admin/job/importlist"
                                       ? "active"
                                       : ""
                                   }`}
@@ -762,7 +762,7 @@ const APSidebar = () => {
                                     id="innerTitle"
                                     style={{
                                       color:
-                                        pathname === "/admin/jobs/importlist"
+                                        pathname === "/admin/job/importlist"
                                           ? "#f3734c"
                                           : "inherit",
                                     }}
@@ -1020,7 +1020,7 @@ const APSidebar = () => {
                     >
                       <div className="dropdown-item">
                         <ul className="SidebarListInternal">
-                          <Link href="/admin/emailtemplates">
+                          <Link href="/admin/email-templates/index">
                             <li className="row">
                               <div id="innerIcon">
                                 <RadioButtonCheckedIcon />
@@ -2020,10 +2020,10 @@ const APSidebar = () => {
                 >
                   <div className="dropdown-item">
                     <ul className="SidebarListInternal">
-                      <Link href="/admin/designation">
+                      <Link href="/admin/designation/index">
                         <li
                           className={`row ${
-                            pathname === "/admin/designation" ||
+                            pathname === "/admin/designation/index" ||
                             pathname === `/admin/designation/${slug}`
                               ? "active"
                               : ""
@@ -2036,7 +2036,7 @@ const APSidebar = () => {
                             id="innerTitle"
                             style={{
                               color:
-                                pathname === "/admin/designation" ||
+                                pathname === "/admin/designation/index" ||
                                 pathname === `/admin/designation/${slug}`
                                   ? "#f3734c"
                                   : "inherit",
@@ -2091,13 +2091,13 @@ const APSidebar = () => {
                 <div className={`dropdown ${showJobsDropdown ? "open" : ""}`}>
                   <div className="dropdown-item">
                     <ul className="SidebarListInternal">
-                      <Link href="/admin/jobs">
+                      <Link href="/admin/job/index">
                         <li
                           className={`row ${
-                            pathname === "/admin/jobs" ||
-                            pathname === `/admin/jobs/editjob/${slug}` ||
-                            pathname === `/admin/jobs/candidates/${slug}` ||
-                            pathname === `/admin/jobs/addjob/${slug}`
+                            pathname === "/admin/job/index" ||
+                            pathname === `/admin/job/edit-job/${slug}` ||
+                            pathname === `/admin/job/candidates/${slug}` ||
+                            pathname === `/admin/job/add-job/${slug}`
                               ? "active"
                               : ""
                           }`}
@@ -2109,10 +2109,10 @@ const APSidebar = () => {
                             id="innerTitle"
                             style={{
                               color:
-                                pathname === "/admin/jobs" ||
-                                pathname === `/admin/jobs/editjob/${slug}` ||
-                                pathname === `/admin/jobs/candidates/${slug}` ||
-                                pathname === `/admin/jobs/addjob/${slug}`
+                                pathname === "/admin/job/index" ||
+                                pathname === `/admin/job/edit-job/${slug}` ||
+                                pathname === `/admin/job/candidates/${slug}` ||
+                                pathname === `/admin/job/add-job/${slug}`
                                   ? "#f3734c"
                                   : "inherit",
                             }}
@@ -2705,10 +2705,10 @@ const APSidebar = () => {
                 >
                   <div className="dropdown-item">
                     <ul className="SidebarListInternal">
-                      <Link href="/admin/emailtemplates">
+                      <Link href="/admin/email-templates/index">
                         <li
                           className={`row ${
-                            pathname === "/admin/emailtemplates" ||
+                            pathname === "/admin/email-templates/index" ||
                             pathname === `/admin/content/edit-content/${slug}`
                               ? "active"
                               : ""
@@ -2721,7 +2721,7 @@ const APSidebar = () => {
                             id="innerTitle"
                             style={{
                               color:
-                                pathname === "/admin/emailtemplates" ||
+                                pathname === "/admin/email-templates/index" ||
                                 pathname ===
                                   `/admin/content/edit-content/${slug}`
                                   ? "#f3734c"
@@ -3429,7 +3429,7 @@ const APSidebar = () => {
                     >
                       <div className="dropdown-item">
                         <ul className="SidebarListInternal">
-                          <Link href="/admin/designation">
+                          <Link href="/admin/designation/index">
                             <li className="row">
                               <div id="innerIcon">
                                 <RadioButtonCheckedIcon />
@@ -3483,7 +3483,7 @@ const APSidebar = () => {
                     >
                       <div className="dropdown-item">
                         <ul className="SidebarListInternal">
-                          <Link href="/admin/jobs">
+                          <Link href="/admin/job/index">
                             <li className="row">
                               <div id="innerIcon">
                                 <RadioButtonCheckedIcon />
@@ -3493,7 +3493,7 @@ const APSidebar = () => {
                           </Link>
                           {userAccess[3]?.Add === 1 && (
                             <>
-                              <Link href="/admin/jobs/addjob">
+                              <Link href="/admin/job/add-job">
                                 <li className="row">
                                   <div id="innerIcon">
                                     <RadioButtonCheckedIcon />
@@ -3501,7 +3501,7 @@ const APSidebar = () => {
                                   <p id="innerTitle">Add Job</p>
                                 </li>
                               </Link>
-                              <Link href="/admin/jobs/import">
+                              <Link href="/admin/job/import">
                                 <li className="row">
                                   <div id="innerIcon">
                                     <RadioButtonCheckedIcon />
@@ -3509,7 +3509,7 @@ const APSidebar = () => {
                                   <p id="innerTitle">Import Job</p>
                                 </li>
                               </Link>
-                              <Link href="/admin/jobs/importlist">
+                              <Link href="/admin/job/importlist">
                                 <li className="row">
                                   <div id="innerIcon">
                                     <RadioButtonCheckedIcon />
@@ -3710,7 +3710,7 @@ const APSidebar = () => {
                     >
                       <div className="dropdown-item">
                         <ul className="SidebarListInternal">
-                          <Link href="/admin/emailtemplates">
+                          <Link href="/admin/email-templates/index">
                             <li className="row">
                               <div id="innerIcon">
                                 <RadioButtonCheckedIcon />
@@ -4267,7 +4267,7 @@ const APSidebar = () => {
                 >
                   <div className="dropdown-item">
                     <ul className="SidebarListInternal">
-                      <Link href="/admin/designation">
+                      <Link href="/admin/designation/index">
                         <li className="row">
                           <div id="innerIcon">
                             <RadioButtonCheckedIcon />
@@ -4309,7 +4309,7 @@ const APSidebar = () => {
                 <div className={`dropdown ${showJobsDropdown ? "open" : ""}`}>
                   <div className="dropdown-item">
                     <ul className="SidebarListInternal">
-                      <Link href="/admin/jobs">
+                      <Link href="/admin/job/index">
                         <li className="row">
                           <div id="innerIcon">
                             <RadioButtonCheckedIcon />
@@ -4317,7 +4317,7 @@ const APSidebar = () => {
                           <p id="innerTitle">Jobs List</p>
                         </li>
                       </Link>
-                      <Link href="/admin/jobs/addjob">
+                      <Link href="/admin/job/add-job">
                         <li className="row">
                           <div id="innerIcon">
                             <RadioButtonCheckedIcon />
@@ -4325,7 +4325,7 @@ const APSidebar = () => {
                           <p id="innerTitle">Add Job</p>
                         </li>
                       </Link>
-                      <Link href="/admin/jobs/import">
+                      <Link href="/admin/job/import">
                         <li className="row">
                           <div id="innerIcon">
                             <RadioButtonCheckedIcon />
@@ -4333,7 +4333,7 @@ const APSidebar = () => {
                           <p id="innerTitle">Import Job</p>
                         </li>
                       </Link>
-                      <Link href="/admin/jobs/importlist">
+                      <Link href="/admin/job/importlist">
                         <li className="row">
                           <div id="innerIcon">
                             <RadioButtonCheckedIcon />
@@ -4647,7 +4647,7 @@ const APSidebar = () => {
                 >
                   <div className="dropdown-item">
                     <ul className="SidebarListInternal">
-                      <Link href="/admin/emailtemplates">
+                      <Link href="/admin/email-templates/index">
                         <li className="row">
                           <div id="innerIcon">
                             <RadioButtonCheckedIcon />

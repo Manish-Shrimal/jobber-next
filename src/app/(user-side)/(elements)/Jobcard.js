@@ -31,24 +31,28 @@ import { useState } from "react";
 import Cookies from "js-cookie";
 import { useTranslation } from "react-i18next";
 import HTMLReactParser from "html-react-parser";
+import { IoLocation } from "react-icons/io5";
+import { configState } from "@/app/lib/atoms/ConfigAtom";
+import { useRecoilValue } from "recoil";
+import { SlCalender } from "react-icons/sl";
+
 
 const JobCard = (props) => {
+  const config = useRecoilValue(configState);
+
+  let curr = config.curr;
   const [open, setOpen] = useState(false);
   const [selectedPayment, setSelectedPayment] = useState(null); // Track the selected payment
 
   const router = useRouter();
   const handleOpen = () => {
-    // console.log("Clicked payment:", plan); // Add this line
-    // setSelectedPayment(plan);
     setOpen(true);
   };
-  const [t, i18n] = useTranslation("common");
 
+  const [t, i18n] = useTranslation("common");
   const handleClose = () => {
-    // setSelectedPayment(null);
     setOpen(false);
   };
-  //   const navigate = useNavigate();
 
   const style = {
     position: "absolute",
@@ -64,7 +68,6 @@ const JobCard = (props) => {
   };
 
   const tokenKey = Cookies.get("tokenClient");
-  const curr = Cookies.get("curr");
 
   // const handleJobView = () => {
   //   if (!tokenKey) {
@@ -84,24 +87,14 @@ const JobCard = (props) => {
     >
       <div className="card-body JcardBody">
         <div className="JcardHead d-flex flex-row justify-content-between">
-          {/* <button
-            onClick={() => handleJobView()}
-            className="h5 card-title JcardTitle homeJobs"
-          >
-            {props.title}
-          </button> */}
+          
           <Link
-            href={`/jobdescription/${props.slug}/${props.cat_slug}`}
+            href={`/job-description/${props.slug}`}
             className="h5 card-title JcardTitle"
           >
             {props.title}
           </Link>
-          {/* <Link className="shareNodeJobCard" onClick={() => handleOpen()}>
-            <i
-              className="fa-solid fa-share-nodes"
-              style={{ color: "#bdbdbd" }}
-            ></i>
-          </Link> */}
+          
           <div>
             <Modal
               open={open}
@@ -217,7 +210,7 @@ const JobCard = (props) => {
             {t("messageForm.jobCardYears")}
           </div>
           <div className="section2Item2 text-muted">
-            <i className="fa-regular fa-calendar-days"></i> {props.created}{" "}
+            <SlCalender /> {props.created}{" "}
             {t("messageForm.jobCardDaysAgo")}
           </div>
         </div>
@@ -232,7 +225,7 @@ const JobCard = (props) => {
               <div className="JcardFooterItem1DynamicImage">
                 <Image
                   width={70}
-                  height={70}
+                  height={100}
                   src={props.logo}
                   alt={props.logo}
                 />
@@ -253,16 +246,20 @@ const JobCard = (props) => {
 
           <div className="JcardFooterItem2">
             <h6>{props.company_name}</h6>
-            <p className="text-muted">
-              <i
-                className="fa-solid fa-location-dot"
-                style={{ color: "#a3a3a3" }}
-              ></i>{" "}
+            <p className="text-muted" style={{
+              display: "flex",
+              justifyContent: "flex-start",
+              placeItems: "center",
+              gap: "3px"
+            }}>
+
+              <IoLocation style={{ color: "#a3a3a3" }} />
+              {" "}
               {props.job_city?.substring(0, 20)}
             </p>
           </div>
           <Link
-            href={`/jobdescription/${props.slug}/${props.cat_slug}`}
+            href={`/job-description/${props.slug}`}
             className="h5 card-title JcardTitle"
           >
             <div className="JcardFooterItem3">{props.work_type}</div>

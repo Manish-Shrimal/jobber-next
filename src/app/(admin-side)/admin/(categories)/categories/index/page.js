@@ -721,7 +721,7 @@ const Page = () => {
                                     className="btn-primary"
                                     onClick={() =>
                                       router.push(
-                                        `/admin/categories/subindex/${i.slug}`
+                                        `/admin/categories/${i.slug}/subcategory-list`
                                       )
                                     }
                                   >

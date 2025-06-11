@@ -31,7 +31,7 @@ export function middleware(request) {
       !pathname.startsWith("/employer/forgetpassword") &&
       !pathname.startsWith("/employer/resetpassword")
     ) {
-      let token = request.cookies.get("tokenEmployer");
+      let token = request.cookies.get("employerToken");
       if (!token) {
         return NextResponse.redirect(new URL("/employer/login", request.url));
       }
@@ -39,10 +39,34 @@ export function middleware(request) {
 
     // Redirect to dashboard if already logged in and trying to access login page
     if (pathname.startsWith("/employer/login")) {
-      let token = request.cookies.get("tokenEmployer");
+      let token = request.cookies.get("employerToken");
       if (token) {
         return NextResponse.redirect(
-          new URL("/employer/dashboard", request.url)
+          new URL("/employer/myprofile", request.url)
+        );
+      }
+    }
+  }
+
+
+  if (pathname.startsWith("/jobseeker")) {
+    if (
+      !pathname.startsWith("/jobseeker-login") &&
+      !pathname.startsWith("/jobseeker/forgetpassword") &&
+      !pathname.startsWith("/jobseeker/resetpassword")
+    ) {
+      let token = request.cookies.get("jobseekerToken");
+      if (!token) {
+        return NextResponse.redirect(new URL("/jobseeker-login", request.url));
+      }
+    }
+
+    // Redirect to account page if already logged in and trying to access login page
+    if (pathname.startsWith("/jobseeker-login")) {
+      let token = request.cookies.get("jobseekerToken");
+      if (token) {
+        return NextResponse.redirect(
+          new URL("/jobseeker/my-profile", request.url)
         );
       }
     }

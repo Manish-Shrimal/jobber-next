@@ -464,7 +464,7 @@ const Page = () => {
                     Dashboard
                   </Link>
                   <Link
-                    href="/admin/jobseeker-list"
+                    href="/admin/jobseeker/index"
                     underline="hover"
                     color="inherit"
                  

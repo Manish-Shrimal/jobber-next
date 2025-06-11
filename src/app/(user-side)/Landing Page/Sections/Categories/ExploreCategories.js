@@ -179,7 +179,7 @@ const ExploreCategories = React.memo(({ category, primaryColor }) => {
                   animate={isInView ? "visible" : "hidden"}
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                 >
-                  <Link href="/searchjob" onClick={() => handleClick(cat.id)}>
+                  <Link href="/search-job" onClick={() => handleClick(cat.id)}>
                     <div
                       className="category-card"
                       onMouseEnter={() => setHoveredIndex(index)}
@@ -249,7 +249,7 @@ const ExploreCategories = React.memo(({ category, primaryColor }) => {
           }}
         >
           <Link
-            href="/allcategory"
+            href="/all-categories"
             className="btn"
             style={{
               backgroundColor: primaryColor || "#007bff",

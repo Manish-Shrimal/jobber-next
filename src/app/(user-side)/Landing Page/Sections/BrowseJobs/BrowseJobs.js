@@ -20,7 +20,7 @@ const BrowseJobs = React.memo(
     const [hoverIndex, setHoverIndex] = useState(null);
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
-    const router = useRouter;
+    const router = useRouter();
 
 
     const getCurrentData = () => {
@@ -56,17 +56,17 @@ const BrowseJobs = React.memo(
       if (!item) return;
       if (activeTab === "By Category") {
         if (handleClick) handleClick(item);
-        router.push("/searchjob");
+        router.push("/search-job");
         sessionStorage.setItem("catId", item.id);
       }
       if (activeTab === "By Title") {
         if (handleClick) handleClick(item.title);
-        router.push(`/jobs/searchjob/${item.slug}`);
+        router.push(`/jobs/search-job/${item.slug}`);
         sessionStorage.setItem("keywordTitle", item.title);
       }
       if (activeTab === "By Skills") {
         if (handleClick) handleClick(item.name);
-        router.push(`/jobs/searchjob/${item.slug}`);
+        router.push(`/jobs/search-job/${item.slug}`);
         localStorage.setItem("skillId", item.id);
       }
     };

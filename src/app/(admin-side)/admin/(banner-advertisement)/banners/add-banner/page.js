@@ -258,7 +258,7 @@ const Page = () => {
                     Dashboard
                   </Link>
                   <Link
-                    href="/admin/banners"
+                    href="/admin/banners/index"
                     underline="hover"
                     color="inherit"
                   >

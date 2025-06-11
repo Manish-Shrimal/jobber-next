@@ -671,6 +671,8 @@ import ApiKey from "@/app/(api)/ApiKey";
 import NavDropdown from "react-bootstrap/NavDropdown"; // Add to your imports
 // import SearchIcon from '@mui/icons-material/Search';
 import Image from "next/image";
+import { configState } from "@/app/lib/atoms/ConfigAtom";
+import { useRecoilValue } from "recoil";
 
 const NavBar = () => {
   const router = useRouter();
@@ -712,10 +714,15 @@ const NavBar = () => {
     nav7: false,
   });
 
-  const tokenKey = Cookies.get("tokenClient");
+  const tokenKey =
+    Cookies.get("employerToken") || Cookies.get("jobseekerToken");
   const siteLogo = Cookies.get("siteLogo");
-  const primaryColor = Cookies.get("primaryColor");
-  let secondaryColor = Cookies.get("secondaryColor");
+  // const primaryColor = Cookies.get("primaryColor");
+  // let secondaryColor = Cookies.get("secondaryColor");
+  const config = useRecoilValue(configState);
+
+  const primaryColor = config.primary_color;
+  const secondaryColor = config.secondary_color;
 
   useEffect(() => {
     if (tokenKey) {
@@ -757,7 +764,8 @@ const NavBar = () => {
           }
         );
 
-        Cookies.remove("tokenClient");
+        // Cookies.remove("tokenClient");
+        Cookies.remove("employerToken") || Cookies.remove("jobseekerToken");
         Cookies.remove("user_type");
         Cookies.remove("fname");
         router.push("/");
@@ -785,7 +793,7 @@ const NavBar = () => {
     { href: "/", label: t("navHeaders.home"), key: "nav1" },
     { href: "/about-us", label: t("navHeaders.aboutus"), key: "nav2" },
     {
-      href: "/candidates/listing",
+      href: "/candidate-listing",
       label: t("navHeaders.jobseekers"),
       key: "nav3",
       condition: userType === "recruiter",
@@ -822,21 +830,21 @@ const NavBar = () => {
     // },
 
     {
-  href: "/search-job",
-  label: (
-    <>
-      <Image
-        width={20} // Set realistic dimensions for nav icons
-        height={20}
-        unoptimized={true}
-        src="/Images/searchnavicon.png"
-        alt="Search"
-        className="me-3 ms-2"
-      />
-    </>
-  ),
-  key: "nav8",
-}
+      href: "/search-job",
+      label: (
+        <>
+          <Image
+            width={20} // Set realistic dimensions for nav icons
+            height={20}
+            unoptimized={true}
+            src="/Images/searchnavicon.png"
+            alt="Search"
+            className="me-3 ms-2"
+          />
+        </>
+      ),
+      key: "nav8",
+    },
   ];
 
   return (
@@ -844,9 +852,9 @@ const NavBar = () => {
       <Container>
         <Link href="/" className="navbar-brand">
           <Image
-        width={500} // Set realistic dimensions for nav icons
-        height={50}
-        unoptimized={true}
+            width={500} // Set realistic dimensions for nav icons
+            height={50}
+            unoptimized={true}
             className="frontendNavLogo"
             src={siteLogo || "/Images/logo.png"}
             alt="Logo"
@@ -887,12 +895,13 @@ const NavBar = () => {
                 <span className={`${getNavItemsClass()} mx-2`}>
                   <i className="fa fa-user"></i> {userName}
                 </span>
-                <button
+                <Link
+                  href="javascript:void(0)"
                   className={`${getNavItemsClass()} logout-btn`}
                   onClick={handleLogOut}
                 >
                   {t("navHeaders.logout")}
-                </button>
+                </Link>
               </>
             ) : (
               <>
@@ -974,7 +983,7 @@ const NavBar = () => {
 </NavDropdown> */}
                 <div className="dropdown">
                   <button
-                    className="btn  dropdown-toggle"
+                    className="btn   dropdown-toggle"
                     type="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
@@ -1040,18 +1049,12 @@ const NavBar = () => {
                   </button>
                   <ul className="dropdown-menu">
                     <li>
-                      <Link
-                        href="/user/employer"
-                        className="dropdown-item"
-                      >
+                      <Link href="/user/employer" className="dropdown-item">
                         {t("navHeaders.employerRegister")}
                       </Link>
                     </li>
                     <li>
-                      <Link
-                        href="/user/jobseeker"
-                        className="dropdown-item"
-                      >
+                      <Link href="/user/jobseeker" className="dropdown-item">
                         {t("navHeaders.jobseekerRegister")}
                       </Link>
                     </li>

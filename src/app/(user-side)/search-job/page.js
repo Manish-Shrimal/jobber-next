@@ -14,7 +14,8 @@ import debounce from "lodash/debounce";
 import { useRouter } from "next/navigation";
 import { useParams } from 'next/navigation'
 import { usePathname } from 'next/navigation'
-
+import { configState } from "@/app/lib/atoms/ConfigAtom";
+import { useRecoilValue } from "recoil";
 const Page = () => {
   const { slug } = useParams();
   const router = useRouter()
@@ -46,11 +47,18 @@ const Page = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const jobsPerPage = 12;
 
-  // Colors from cookies
-  const primaryColor = Cookies.get("primaryColor") || "#007bff";
-  const secondaryColor = Cookies.get("secondaryColor") || "#6c757d";
 
-  const mapKey = Cookies.get("mapKey");
+    const config = useRecoilValue(configState);
+    const primaryColor = config.primary_color;
+  const secondaryColor = config.secondary_color;
+
+  // Colors from cookies
+  // const primaryColor = Cookies.get("primaryColor") || "#007bff";
+  // const secondaryColor = Cookies.get("secondaryColor") || "#6c757d";
+
+  // const mapKey = Cookies.get("mapKey");
+    const mapKey = config.map_key;
+
   const tokenKey = Cookies.get("tokenClient");
 
   
@@ -177,7 +185,7 @@ const Page = () => {
       try {
         const response = await axios.post(BaseApi + "/job/listing", filterItem);
         setSearchData(response.data.response.jobs || []);
-        sessionStorage.setItem("jobSearched", "1");
+        localStorage.setItem("jobSearched", "1");
       } catch (error) {
         console.error("Error performing search:", error);
       } finally {
@@ -250,7 +258,7 @@ const prevLocationRef = useRef(router.pathname);
 
   useEffect(() => {
     return () => {
-      sessionStorage.clear(); // Clear session when leaving this page
+      localStorage.clear(); // Clear session when leaving this page
     };
   }, []);
 

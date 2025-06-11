@@ -7,5 +7,5 @@ import { atom } from 'recoil';
 
 export const configState = atom({
   key: 'configState',
-  default: null,
+  default: {},
 });

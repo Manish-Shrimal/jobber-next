@@ -590,7 +590,7 @@ const Page = () => {
                   className="btn navButton1 APMSbutton"
                   onClick={() =>
                     router.push(
-                      `/admin/specializations/addspecialization/${dataPerPage.cateogory_slug}`
+                      `/admin/course/${dataPerPage.cateogory_slug}/add-specialization`
                     )
                   }
                 >
@@ -697,7 +697,7 @@ const Page = () => {
                                         className="btn-primary"
                                         onClick={() =>
                                           router.push(
-                                            `/admin/specializations/editspecialization/${i.slug}/${dataPerPage.cateogory_slug}`
+                                            `/admin/course/${i.slug}/edit-specialization/${dataPerPage.cateogory_slug}`
                                           )
                                         }
                                       >
