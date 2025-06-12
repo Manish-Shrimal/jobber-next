@@ -1,5 +1,4 @@
-
-"use client"
+"use client";
 import React, { useEffect, useState } from "react";
 import NavBar from "@/app/(user-side)/(elements)/NavBar";
 import Footer from "@/app/(user-side)/(elements)/Footer";
@@ -14,9 +13,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-
 const Page = () => {
-    const router = useRouter()
+  const router = useRouter();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -37,7 +35,7 @@ const Page = () => {
 
   const recaptchaLanguage = Cookies.get("selectedLanguage");
   const currentLanguage = Cookies.get("selectedLanguage") || "en";
-//   const navigate = useNavigate();
+  //   const navigate = useNavigate();
   const userType = Cookies.get("user_type");
   const tokenKey = Cookies.get("tokenClient");
 
@@ -63,7 +61,9 @@ const Page = () => {
   const getData = async () => {
     try {
       setLoading(true);
-      const response = await axios.post(BaseApi + `/page/staticpage/faq`,{language: currentLanguage});
+      const response = await axios.post(BaseApi + `/page/staticpage/faq`, {
+        language: currentLanguage,
+      });
       setLoading(false);
       setPageContent(response.data.response);
     } catch (error) {
@@ -84,7 +84,7 @@ const Page = () => {
   //     navigate("/user/jobseekerlogin");
   //   } else {
   //     getData();
-      
+
   //   }
   // }, []);
 
@@ -194,7 +194,7 @@ const Page = () => {
                   <Link href="/" style={{ color: "grey" }}>
                     {t("navHeaders.home")}
                   </Link>{" "}
-                  /{pageContent.page_title}
+                  / {pageContent.page_title}
                 </h6>
               </div>
               <div className="container section2Faq">
@@ -212,102 +212,21 @@ const Page = () => {
                       </h3>
                     </div>
 
-                  <Image
-  className="mt-3"
-  src="/Images/Faq.png"
-  alt="FAQ icon"
-  width={40}   // Replace with actual image size
-  height={40}
-/>
+                    <Image
+                      className="mt-3"
+                      src="/Images/Faq.png"
+                      alt="FAQ icon"
+                      width={300} // Replace with actual image size
+                      height={300}
+                    />
                   </div>
                   <div className="col-lg-7">
                     <div className="upperPart">
                       {pageContent.page_description &&
                         HTMLReactParser(pageContent.page_description)}
-                      {/* <h4>Download and Installation</h4>
-                      <p>
-                        You can download the app from Apple App store on your
-                        device. Apple is available only on Apple App store for
-                        both iPhone and iPad devices.
-                      </p>
-                      <h4 className="mt-4">Login and Registering</h4>
-                      <p>
-                        You can login into the app by registering and by
-                        providing your basic informations. This informations
-                        will never be used without your permission.
-                      </p> */}
+                      
                     </div>
-                    {/* <div className="lowerPart">
-                      <div className="accordion" id="accordionExample">
-                        <div className="accordion-item">
-                          <h2 className="accordion-header" id="headingTwo">
-                            <button
-                              className="accordion-button collapsed"
-                              type="button"
-                              data-bs-toggle="collapse"
-                              data-bs-target="#collapseTwo"
-                              aria-expanded="false"
-                              aria-controls="collapseTwo"
-                            >
-                              <p>
-                                What can I do so that multiple employers will
-                                contact me?
-                              </p>
-                            </button>
-                          </h2>
-                          <div
-                            id="collapseTwo"
-                            className="accordion-collapse collapse"
-                            aria-labelledby="headingTwo"
-                            data-bs-parent="#accordionExample"
-                          >
-                            <div className="accordion-body">
-                              <p>
-                                Ensure that you complete and update your online
-                                CV profileYou should also upload your in ms word
-                                and pdf format.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="accordion-item">
-                          <h2 className="accordion-header" id="headingThree">
-                            <button
-                              className="accordion-button collapsed"
-                              type="button"
-                              data-bs-toggle="collapse"
-                              data-bs-target="#collapseThree"
-                              aria-expanded="false"
-                              aria-controls="collapseThree"
-                            >
-                              <p>
-                                How do I search for job adverts on the jobs
-                                portal?
-                              </p>
-                            </button>
-                          </h2>
-                          <div
-                            id="collapseThree"
-                            className="accordion-collapse collapse"
-                            aria-labelledby="headingThree"
-                            data-bs-parent="#accordionExample"
-                          >
-                            <div className="accordion-body">
-                              <p>
-                                Use our job search filter on the nav bar of the
-                                page .This option lets you filter the job
-                                adverts by location,category/subcategory .after
-                                selecting your preferences click on the "Find
-                                Jobs " button. The other option is to type the
-                                keyword yoy want to search by into the text box
-                                under job keyword search click on "Find jobs"
-                                after you have typed in your keywordes
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div> */}
+                    
                   </div>
                 </div>
               </div>

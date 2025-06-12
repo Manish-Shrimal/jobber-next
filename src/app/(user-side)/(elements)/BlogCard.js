@@ -1,3 +1,5 @@
+"use client"
+
 // import { Link } from "react-router-dom";
 import HTMLReactParser from "html-react-parser";
 import React, { useEffect, useState } from "react";
@@ -22,11 +24,12 @@ const BlogCard = (props) => {
     <>
       <div className="blogCard card ">
         <div className="view">
-          <Link href={`/dynamicblogpage/${props.slug}`}>
+          <Link href={`/blog/${props.slug}`}>
             {props.image ? (
               <Image 
               width={100}
               height={100}
+              unoptimized={true}
                 className="card-img-top p-2 "
                 src={props.image}
                 alt="Card cap"
@@ -35,6 +38,7 @@ const BlogCard = (props) => {
               <Image 
               width={100}
               height={100}
+              unoptimized={true}
                 className="card-img-top p-2 "
                 src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).webp"
                 alt="Card cap"
@@ -44,7 +48,7 @@ const BlogCard = (props) => {
         </div>
 
         <div className="blogCardBody card-body">
-          <Link href={`/dynamicblogpage/${props.slug}`}>
+          <Link href={`/blog/${props.slug}`}>
             <p className="text-muted mb-2">{t("blogPage.posted")}: {props.created}</p>
             <h4 className="card-title">
               {props.title ? HTMLReactParser(props.title) : ""}
@@ -59,7 +63,7 @@ const BlogCard = (props) => {
         </div>
         <div className="card-footer blogCardFooter">
           <Link
-            href={`/dynamicblogpage/${props.slug}`}
+            href={`/blog/${props.slug}`}
             style={{
               color: `${
                 props.secondaryColor &&

@@ -11,6 +11,8 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import BaseApi from "@/app/(api)/BaseApi";
 import ApiKey from "@/app/(api)/ApiKey";
+import { configState } from "@/app/lib/atoms/ConfigAtom";
+import { useRecoilValue } from "recoil";
 
 // Lazy-load components
 const NavBar = lazy(() => import("@/app/(user-side)/(elements)/NavBar"));
@@ -65,6 +67,9 @@ class ErrorBoundary extends React.Component {
 }
 
 const Index = () => {
+    const config = useRecoilValue(configState);
+  
+
   const [skills, setSkills] = useState([]);
   const [categoryData, setCategoryData] = useState([]);
   const [popularSearches, setPopularSearches] = useState([]);
@@ -84,10 +89,10 @@ const Index = () => {
   // Fetch cookies once
   const cookieData = useMemo(
     () => ({
-      tokenKey: Cookies.get("tokenClient"),
-      primaryColor: Cookies.get("primaryColor") || "#294a9c", // Default blue
-      secondaryColor: Cookies.get("secondaryColor") || "#f3734c", // Default pink
-      curr: Cookies.get("curr"),
+      tokenKey: Cookies.get("employerToken") || Cookies.get("jobseekerToken"),
+      primaryColor: config.primary_color || "#294a9c", // Default blue
+      secondaryColor: config.secondary_color || "#f3734c", // Default pink
+      curr: config.curr,
       userType: Cookies.get("user_type"),
     }),
     []
@@ -155,6 +160,7 @@ const Index = () => {
 
   useEffect(() => {
     getData();
+    // console.log(getData)
   }, [getData]);
 
   // Memoize sliced data to prevent re-computation
@@ -214,14 +220,14 @@ const Index = () => {
           secondaryColor={cookieData.secondaryColor}
           curr={cookieData.curr}
         />
-        {/* <MembershipPlans
+        <MembershipPlans
           membershipData={membershipData}
           primaryColor={cookieData.primaryColor}
           secondaryColor={cookieData.secondaryColor}
           curr={cookieData.curr}
           userType={cookieData.userType}
           tokenKey={cookieData.tokenKey}
-        /> */}
+        />
         <TopEmployers TopEmployer={topEmployer} />
         <DownloadApp />
         <Banner banner={bannerDetails} />

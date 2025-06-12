@@ -16,6 +16,10 @@ import { useParams } from 'next/navigation'
 import { usePathname } from 'next/navigation'
 import { configState } from "@/app/lib/atoms/ConfigAtom";
 import { useRecoilValue } from "recoil";
+import Link from "next/link";
+
+
+
 const Page = () => {
   const { slug } = useParams();
   const router = useRouter()
@@ -308,7 +312,15 @@ const prevLocationRef = useRef(router.pathname);
         </div>
       ) : (
         <>
+         <div className="SearchJobsSection1 text-center">
+          <h1>Jobs</h1>
+          <h6 className="text-muted fw-normal">
+            <Link href="/" style={{ color: "grey" }}>{t("navHeaders.home")}</Link> / Jobs
+          </h6>
+           </div>
+           
           <div className="SJPSection1">
+          
             <form>
               <div className="formItems">
                 <div className="searchItems me-2">

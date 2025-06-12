@@ -95,7 +95,7 @@ const JSMailHistory = () => {
                 setMailHistory(response.data.response);
                 console.log(mailHistory);
             } else if (response.data.status === 400) {
-                Cookies.remove("tokenClient");
+                Cookies.remove("jobseekerToken");
                 Cookies.remove("user_type");
                 Cookies.remove("fname");
                 router.push("/");
@@ -114,7 +114,7 @@ const JSMailHistory = () => {
         } catch (error) {
             setLoading(false);
             if (error.message === "Network Error") {
-                Cookies.remove("tokenClient");
+                Cookies.remove("jobseekerToken");
                 Cookies.remove("user_type");
                 Cookies.remove("fname");
                 router.push("/");

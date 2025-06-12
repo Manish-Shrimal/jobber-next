@@ -12,6 +12,8 @@ import { useTranslation } from "react-i18next";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { configState } from "@/app/lib/atoms/ConfigAtom";
+import { useRecoilValue } from "recoil";
 
 const Page = () => {
   const [loading, setLoading] = useState(false);
@@ -29,9 +31,11 @@ const Page = () => {
   const [logo, setLogo] = useState("");
   const [establishmentPhoto, setEstablishmentPhoto] = useState("");
 
-  let primaryColor = Cookies.get("primaryColor");
-  let secondaryColor = Cookies.get("secondaryColor");
-  const [t, i18n] = useTranslation("global");
+  const config = useRecoilValue(configState);
+  let primaryColor = config.primary_color;
+
+  let secondaryColor = config.secondary_color;
+  const [t, i18n] = useTranslation("common");
 
   const [hoverSearchColor, setHoverSearchColor] = useState(false);
 

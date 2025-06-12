@@ -811,12 +811,12 @@ const Page = ({ params }) => {
             <div className="modal-dialog">
               <div className="modal-content">
                 <div className="modal-header">
-                  <h1
+                  <h2
                     className="text-center modal-title fs-5"
                     id="exampleModalLabel"
                   >
                     {t("jobDescription.jobApplicationConfirmation")}
-                  </h1>
+                  </h2>
                   <button
                     type="button"
                     className="btn-close"

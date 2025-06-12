@@ -117,6 +117,9 @@ const CreateJob = () => {
     annual_salary: "",
     logo: "",
     last_date: "",
+    meta_title: "",
+    meta_description: "",
+    meta_keyword: "",
   });
 
   const [totalData, setTotalData] = useState([]);
@@ -1224,6 +1227,57 @@ const CreateJob = () => {
                     {errors.last_date && (
                       <div className="text-danger">{errors.last_date}</div>
                     )}
+                  </div>
+
+                  <div className="form-outline mb-5 DashBoardInputBx DashBoardCreatBx">
+                    <label className="form-label" htmlFor="form3Example3">
+                      {t("employerCreateJob.metaTitle")}
+                    </label>
+                    <input
+                      type="text"
+                      id="form3Example3"
+                      className="form-control"
+                      name="meta_title"
+                      value={jobData.meta_title}
+                      placeholder={t("employerCreateJob.metaTitle")}
+                      onChange={handleChange}
+                    />
+                    
+                    
+                  </div>
+
+                  <div className="form-outline mb-5 DashBoardInputBx DashBoardCreatBx">
+                    <label className="form-label" htmlFor="form3Example3">
+                      {t("employerCreateJob.metaDescription")}
+                    </label>
+                    <input
+                      type="text"
+                      id="form3Example3"
+                      className="form-control"
+                      name="meta_description"
+                      value={jobData.meta_description}
+                      placeholder={t("employerCreateJob.metaDescription")}
+                      onChange={handleChange}
+                    />
+                    
+                    
+                  </div>
+
+                  <div className="form-outline mb-5 DashBoardInputBx DashBoardCreatBx">
+                    <label className="form-label" htmlFor="form3Example3">
+                      {t("employerCreateJob.metaKeyword")}
+                    </label>
+                    <input
+                      type="text"
+                      id="form3Example3"
+                      className="form-control"
+                      name="meta_keyword"
+                      value={jobData.meta_keyword}
+                      placeholder={t("employerCreateJob.metaKeyword")}
+                      onChange={handleChange}
+                    />
+                    
+                    
                   </div>
 
                   <div className="bottomButtons">

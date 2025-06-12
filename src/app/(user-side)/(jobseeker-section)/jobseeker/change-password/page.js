@@ -131,7 +131,7 @@ const JSChangePassword = () => {
             router.push("/jobseeker/my-account");
           } else if (response.data.status === 400) {
             // setLoading(false);
-            Cookies.remove("tokenClient");
+            Cookies.remove("jobseekerToken");
             Cookies.remove("user_type");
             Cookies.remove("fname");
             router.push("/");
@@ -152,7 +152,7 @@ const JSChangePassword = () => {
     } catch (error) {
       setLoading(false);
       if (error.message === "Network Error") {
-        Cookies.remove("tokenClient");
+        Cookies.remove("jobseekerToken");
         Cookies.remove("user_type");
         Cookies.remove("fname");
         router.push("/");

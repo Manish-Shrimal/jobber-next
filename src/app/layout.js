@@ -8,6 +8,8 @@ import { RecoilRoot } from "recoil";
 import ConfigInitializer from "./components/ConfigInitializer";
 import BootstrapClient from "./components/BoostrapClient";
 import GetConstants from "./components/GetConstants";
+import DynamicMetaData from "./components/DynamicMetaData";
+
 
 
 export default function RootLayout({ children }) {
@@ -20,6 +22,8 @@ export default function RootLayout({ children }) {
           integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
           crossorigin="anonymous"
         />
+         
+        
       </Head>
 
       <body>
@@ -29,8 +33,9 @@ export default function RootLayout({ children }) {
           
           <BootstrapClient />
             <ConfigInitializer />
-            {children}
           
+            {children}
+         
         </ClientLayout>
         </RecoilRoot>
       </body>

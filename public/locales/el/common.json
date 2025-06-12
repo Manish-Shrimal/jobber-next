@@ -394,7 +394,8 @@
         "followUs" : "Ακολουθήστε μας",
         "siteMap" : "Χάρτης Ιστοσελίδας",
         "jobseekerLogin" : "σύνδεση υποψηφίου",
-        "findJob" : "Βρες μια Δουλειά"
+        "findJob" : "Βρες μια Δουλειά",
+        "cancellation" : "Ακύρωση και Επιστροφή Χρημάτων"
     },
 
     "employerSidebar" : {
@@ -515,7 +516,10 @@
         "partTime" : "Неповний робочий день",
         "Casual" : "Тимчасова",
         "seasonal" : "Сезонна",
-        "fixedTerm" : "Визначений термін"
+        "fixedTerm" : "Визначений термін",
+        "metaTitle" : "Мета-заголовок",
+        "metaDescription" : "Мета-опис",
+        "metaKeyword" : "Мета-слова"
     },
     "employerManageJobs" : {
         "manageJobs" : "Διαχείριση Αναρτήσεων",

@@ -388,7 +388,9 @@
         "followUs" : "Слідкуйте за нами",
         "siteMap" : "Мапа сайту",
         "jobseekerLogin" : "Вхід для шукачів",
-        "findJob" : "Знайти роботу"
+        "findJob" : "Знайти роботу",
+        "cancellation" : "Скасування та Повернення коштів"
+
     },
     "employerSidebar" : {
         "quickLinks" : "Швидкі посилання",
@@ -506,7 +508,10 @@
         "partTime" : "Неповний робочий день",
         "Casual" : "Тимчасова",
         "seasonal" : "Сезонна",
-        "fixedTerm" : "Визначений термін"
+        "fixedTerm" : "Визначений термін",
+        "metaTitle" : "Мета-заголовок",
+        "metaDescription" : "Мета-опис",
+        "metaKeyword" : "Мета-слова"
     },
     "employerManageJobs" : {
         "manageJobs" : "Керування Пости",

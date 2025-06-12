@@ -45,7 +45,7 @@ const AllCategoryPage = () => {
               <Link href="/" style={{ color: "grey" }}>
                 {t("navHeaders.home")}
               </Link>{" "}
-              /{t("allCategoryPage.allCategories")}
+              /{" "}{t("allCategoryPage.allCategories")}
             </h6>
           </div>
           <div className="allCategorySection2 container">

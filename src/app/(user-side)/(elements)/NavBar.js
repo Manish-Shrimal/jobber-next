@@ -673,6 +673,7 @@ import NavDropdown from "react-bootstrap/NavDropdown"; // Add to your imports
 import Image from "next/image";
 import { configState } from "@/app/lib/atoms/ConfigAtom";
 import { useRecoilValue } from "recoil";
+import { FaRegUser } from "react-icons/fa";
 
 const NavBar = () => {
   const router = useRouter();
@@ -721,8 +722,12 @@ const NavBar = () => {
   // let secondaryColor = Cookies.get("secondaryColor");
   const config = useRecoilValue(configState);
 
-  const primaryColor = config.primary_color;
-  const secondaryColor = config.secondary_color;
+  // const primaryColor = config.primary_color;
+  // const secondaryColor = config.secondary_color;
+
+  const primaryColor = config.primary_color || "#rgb(41, 74, 156)"; // Default to a blue shade
+const secondaryColor = config.secondary_color || "#rgb(243, 115, 76)"; // Default to a gray shade
+
 
   useEffect(() => {
     if (tokenKey) {
@@ -893,7 +898,7 @@ const NavBar = () => {
             {login ? (
               <>
                 <span className={`${getNavItemsClass()} mx-2`}>
-                  <i className="fa fa-user"></i> {userName}
+                 <FaRegUser /> {userName}
                 </span>
                 <Link
                   href="javascript:void(0)"
@@ -994,7 +999,7 @@ const NavBar = () => {
                       border: hoverLoginColor ? secondaryColor : primaryColor,
                       fontWeight: "500",
                       fontSize: "16px",
-                      padding: "9px 25px",
+                      padding: "6px 15px",
                       borderRadius: "10px",
                       marginLeft: "15px",
                       minWidth: "115px",
@@ -1037,7 +1042,7 @@ const NavBar = () => {
                         ? `2px solid ${primaryColor}`
                         : `2px solid ${secondaryColor}`,
                       fontSize: "16px",
-                      padding: "6px 15px",
+                      padding: "5px 15px",
                       borderRadius: "10px",
                       marginLeft: "15px",
                       fontWeight: "500",

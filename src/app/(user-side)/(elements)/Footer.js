@@ -522,9 +522,13 @@ const Footer = () => {
   const pinterestLink = Cookies.get("pinterestLink") || "#";
   const linkedInLink = Cookies.get("linkedInLink") || "#";
   
-  const config = useRecoilValue(configState);
-  const siteTitle = config.siteTitle;
-  console.log(siteTitle)
+const config = useRecoilValue(configState);
+const siteTitle = config?.site_title || "Default Site Title";
+
+
+
+
+
 
 
   // Correct destructuring here:
@@ -658,6 +662,8 @@ const { t, i18n } = useTranslation("common");
               { href: "/privacy-policy", label: t("footer.privacyPolicy") },
               { href: "/contact", label: t("footer.contactus") },
               { href: "/sitemap", label: t("footer.siteMap") },
+              { href: "/cancellation-and-refund", label: t("footer.cancellation") },
+
             ]
           )}
 

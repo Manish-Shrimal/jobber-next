@@ -26,6 +26,7 @@ import { configState } from "@/app/lib/atoms/ConfigAtom";
 import { useRecoilValue } from "recoil";
 import {useParams} from "next/navigation"
 import "react-quill/dist/quill.snow.css"; // import styles
+
 const Page = () => {
   const editor = useRef(null);
   const tokenKey = Cookies.get("employerToken");
@@ -48,8 +49,10 @@ const Page = () => {
     setOpen(false);
   };
 
-  let primaryColor = Cookies.get("primaryColor");
-  let secondaryColor = Cookies.get("secondaryColor");
+
+  let primaryColor = config.primary_color;
+
+  let secondaryColor = config.secondary_color;
 
   const [hoverSearchColor, setHoverSearchColor] = useState(false);
 

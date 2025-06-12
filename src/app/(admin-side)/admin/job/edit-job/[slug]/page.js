@@ -68,6 +68,9 @@ const Page = () => {
     logo: "",
     last_date: "",
     user_id: "",
+    meta_title: "",
+    meta_description: "",
+    meta_keyword: "",
   });
 
   const [selectedImage, setSelectedImage] = useState(null);
@@ -1225,6 +1228,53 @@ const Page = () => {
                     onChange={handleChange}
                   />
                 </div>
+
+                <div className="form-outline mb-5 DashBoardInputBx DashBoardCreatBx">
+                  <label className="form-label" htmlFor="form3Example3">
+                    Meta Title
+                  </label>
+                  <input
+                    type="text"
+                    id="form3Example3"
+                    className="form-control"
+                    name="meta_title"
+                    value={jobData.meta_title}
+                    placeholder="Meta Title"
+                    onChange={handleChange}
+                  />
+                  
+                </div>
+                <div className="form-outline mb-5 DashBoardInputBx DashBoardCreatBx">
+                  <label className="form-label" htmlFor="form3Example3">
+                    Meta Description
+                  </label>
+                  <input
+                    type="text"
+                    id="form3Example3"
+                    className="form-control"
+                    name="meta_description"
+                    value={jobData.meta_description}
+                    placeholder="Meta Description"
+                    onChange={handleChange}
+                  />
+                  
+                </div>
+                <div className="form-outline mb-5 DashBoardInputBx DashBoardCreatBx">
+                  <label className="form-label" htmlFor="form3Example3">
+                    Meta Keywords
+                  </label>
+                  <input
+                    type="text"
+                    id="form3Example3"
+                    className="form-control"
+                    name="meta_keyword"
+                    value={jobData.meta_keyword}
+                    placeholder="Meta Keywords"
+                    onChange={handleChange}
+                  />
+                  
+                </div>
+
                 <div className="APAddJobBottomButtons">
                   <button
                     type="button"

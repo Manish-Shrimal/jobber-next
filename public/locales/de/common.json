@@ -407,7 +407,8 @@
         "followUs" : "Folge uns",
         "siteMap" : "Sitemap",
         "jobseekerLogin" : "Jobsuchende Anmeldung",
-        "findJob" : "Job finden"
+        "findJob" : "Job finden",
+        "cancellation" : "Stornierung und Rückerstattung"
     },
     "employerSidebar" : {
         "quickLinks" : "Schnellzugriffe",

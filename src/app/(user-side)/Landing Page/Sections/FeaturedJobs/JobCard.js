@@ -35,7 +35,7 @@ const JobCard = ({
         </div>
       </div>
       <div className="job-header">
-        <Link href={`/jobdescription/${slug}/${cat_slug}`}>
+        <Link href={`/job-description/${slug}`}>
           <div className="job-title">{title}</div>
         </Link>
       </div>

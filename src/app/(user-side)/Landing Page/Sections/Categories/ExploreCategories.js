@@ -144,7 +144,7 @@ const ExploreCategories = React.memo(({ category, primaryColor }) => {
   };
 
   const handleClick = (id) => {
-    sessionStorage.setItem("catId", id);
+    localStorage.setItem("catId", id);
   };
 
   const fadeInUp = {

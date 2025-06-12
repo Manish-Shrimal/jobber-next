@@ -30,6 +30,9 @@ const Page = () => {
     static_page_title: "",
     static_page_title_ukr: "",
     static_page_title_el: "",
+    meta_title: "",
+    meta_description: "",
+    meta_keyword: "",
   });
   const [errors, setErrors] = useState({
     static_page_description: "",
@@ -351,6 +354,51 @@ const Page = () => {
                       placeholder="Add your text here..."
                     />
                   </div>
+
+                  <div class="mb-5 DashBoardInputBx">
+                    <label for="formFile" class="form-label">
+                      Meta Title
+                    </label>
+                    <input
+                      type="text"
+                      id="form3Example1"
+                      className="form-control"
+                      name="meta_title"
+                      placeholder="Meta Title"
+                      value={userData.meta_title}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div class="mb-5 DashBoardInputBx">
+                    <label for="formFile" class="form-label">
+                      Meta Description
+                    </label>
+                    <input
+                      type="text"
+                      id="form3Example1"
+                      className="form-control"
+                      name="meta_description"
+                      placeholder="Meta Description"
+                      value={userData.meta_description}
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div class="mb-5 DashBoardInputBx">
+                    <label for="formFile" class="form-label">
+                      Meta Keyword
+                    </label>
+                    <input
+                      type="text"
+                      id="form3Example1"
+                      className="form-control"
+                      name="meta_keyword"
+                      placeholder="Meta Keyword"
+                      value={userData.meta_keyword}
+                      onChange={handleChange}
+                    />
+                  </div>
+
 
                   <button
                     type="button"

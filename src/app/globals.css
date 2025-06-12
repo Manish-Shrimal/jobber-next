@@ -1544,18 +1544,28 @@ ol {
 .aboutusSection3 .row {
   margin: 5% 0 2% 0;
 }
-.aboutusSection3 h1 {
+/* .aboutusSection3 h1 {
+  color: #f3734c;
+  font-size: 50px;
+  font-weight: 600;
+} */
+
+.aboutusSection3 h2 {
   color: #f3734c;
   font-size: 50px;
   font-weight: 600;
 }
 
-.aboutusSection4 h1 {
+/* .aboutusSection4 h1 {
   margin: 5% 0 5% 0;
+} */
+ .aboutusSection4 h4 {
+  margin: 5% 0 5% 0;
+  font-size: 40px;
 }
 .aboutusSection4 .card {
   min-height: 300px;
-  margin: 0 3% 5% 3%;
+  margin: 0 0% 5% 0%;
   transition: all 1s ease;
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 10px;
@@ -7289,9 +7299,14 @@ ol {
   .aboutusSection1 {
     padding: 45px 0 40px 0;
   }
-  .aboutusSection4 h1 {
+  /* .aboutusSection4 h1 {
     margin-bottom: 50px;
     margin-top: 50px;
+  } */
+     .aboutusSection4 h4 {
+    margin-bottom: 50px;
+    margin-top: 50px;
+    font-size: 24px;
   }
   .aboutusSection3 .row {
     margin: 30px 0 15px 0;
@@ -7305,7 +7320,12 @@ ol {
     flex: auto;
     margin: 20px 0;
   }
-  .aboutusSection3 h1 {
+  /* .aboutusSection3 h1 {
+    color: #f3734c;
+    font-size: 42px;
+    font-weight: 600;
+  } */
+    .aboutusSection3 h2 {
     color: #f3734c;
     font-size: 42px;
     font-weight: 600;
@@ -8531,4 +8551,11 @@ ol {
   border-radius: 3px;
   margin-left: 15px;
   min-width: 80px;
+}
+
+.SearchJobsSection1 {
+    padding: 30px 0;
+  margin: 0 0 3% 0;
+  /* background-image: url("/public/Images/About-Us-slider.jpg"); */
+  background-image: url("/Images/About-Us-slider.jpg");
 }

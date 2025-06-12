@@ -94,9 +94,9 @@ const FeaturedJobs = React.memo(
             animate={isInView ? "visible" : "hidden"}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h1 className="title">
+            <h2 className="title">
               {t("userpage.featured")} {t("userpage.jobs")}
-            </h1>
+            </h2>
           </motion.div>
           {jobCardData && Array.isArray(jobCardData) && jobCardData.length > 0 ? (
             <div className="row">

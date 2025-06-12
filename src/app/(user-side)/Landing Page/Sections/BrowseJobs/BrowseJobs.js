@@ -90,7 +90,7 @@ const BrowseJobs = React.memo(
     return (
       <div className="browseJobs-section" ref={ref}>
         <div className="container browseJobs">
-          <motion.h1
+          <motion.h2
             className="title"
             variants={fadeInUp}
             initial="hidden"
@@ -98,7 +98,7 @@ const BrowseJobs = React.memo(
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             Browse Jobs
-          </motion.h1>
+          </motion.h2>
 
           <motion.div
             className="tabs"

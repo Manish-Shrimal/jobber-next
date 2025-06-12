@@ -18,11 +18,13 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import "react-quill/dist/quill.snow.css"; // import styles
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+import { configState } from "@/app/lib/atoms/ConfigAtom";
+import { useRecoilValue } from "recoil";
 const EditProfile = () => {
   const editor = useRef(null);
   const [profileData, setProfileData] = useState([]);
   const [establishmentPhoto, setEstablishmentPhoto] = useState("");
-  const [t, i18n] = useTranslation("global");
+  const [t, i18n] = useTranslation("common");
 
   const [errors, setErrors] = useState({
     company_name: "",
@@ -271,8 +273,10 @@ const EditProfile = () => {
     setProfileData({ ...profileData, profile_image: base64 });
   };
 
-  let primaryColor = Cookies.get("primaryColor");
-  let secondaryColor = Cookies.get("secondaryColor");
+  const config = useRecoilValue(configState);
+  let primaryColor = config.primary_color;
+
+  let secondaryColor = config.secondary_color;
   const mapKey = Cookies.get("mapKey");
 
   const [hoverSearchColor, setHoverSearchColor] = useState(false);

@@ -394,7 +394,8 @@
         "followUs" : "Follow us",
         "siteMap" : "Site map",
         "jobseekerLogin" : "Jobseeker login",
-        "findJob" : "Find a job"
+        "findJob" : "Find a job",
+        "cancellation" : "Cancellation and Refund"
     },
     "employerSidebar" : {
         "quickLinks" : "Quick Links",
@@ -515,7 +516,10 @@
         "partTime" : "Part time",
         "Casual" : "Casual",
         "seasonal" : "Seasonal",
-        "fixedTerm" : "Fixed term"
+        "fixedTerm" : "Fixed term",
+        "metaTitle" : "Meta Title",
+        "metaDescription" : "Meta Description",
+        "metaKeyword" : "Meta Keyword"
     },
     "employerManageJobs" : {
         "manageJobs" : "Manage Jobs",

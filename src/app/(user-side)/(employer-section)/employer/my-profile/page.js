@@ -14,6 +14,8 @@ import NavBar from "@/app/(user-side)/(elements)/NavBar";
 import Footer from "@/app/(user-side)/(elements)/Footer";
 import Sidebar from "../Sidebar/Sidebar";
 import Image from "next/image";
+import { useRecoilValue } from "recoil";
+import { configState } from "@/app/lib/atoms/ConfigAtom";
 
 const MyProfileNew = () => {
   const [profileData, setProfileData] = useState([]);
@@ -21,8 +23,12 @@ const MyProfileNew = () => {
   const [loading, setLoading] = useState(false);
   // const tokenKey = sessionStorage.getItem("token");
   const router = useRouter();
-  let primaryColor = Cookies.get("primaryColor");
-  let secondaryColor = Cookies.get("secondaryColor");
+  const config = useRecoilValue(configState);
+
+
+  let primaryColor = config.primary_color;
+
+  let secondaryColor = config.secondary_color;
   const [t, i18n] = useTranslation("common");
 
   const [hoverPlanColor, setHoverPlanColor] = useState(false);

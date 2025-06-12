@@ -51,6 +51,8 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { BiSolidStar } from "react-icons/bi";
+import { useRecoilValue } from "recoil";
+import { configState } from "@/app/lib/atoms/ConfigAtom";
 
 const Page = () => {
   const [loading, setLoading] = useState(false);
@@ -352,9 +354,12 @@ const Page = () => {
   };
 
   const { slug } = useParams();
+  const config = useRecoilValue(configState);
 
-  let primaryColor = Cookies.get("primaryColor");
-  let secondaryColor = Cookies.get("secondaryColor");
+
+  let primaryColor = config.primary_color;
+
+  let secondaryColor = config.secondary_color;
 
   const [hoverSearchColor, setHoverSearchColor] = useState(false);
 

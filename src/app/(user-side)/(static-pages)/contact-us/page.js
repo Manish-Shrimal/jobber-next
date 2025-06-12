@@ -205,8 +205,9 @@ const Page = () => {
                               <Image
   src="/Images/email-icon.png"
   alt="Email icon"
-  width={24}  // Replace with actual size
-  height={24}
+  width={50}  
+  height={50}
+  unoptimized={true}
 />
                             </i>
                             <div className="ContactDetailsBx">
@@ -219,8 +220,9 @@ const Page = () => {
                               <Image
   src="/Images/call-icon.png"
   alt="Call icon"
-  width={24}   // Adjust width
-  height={24}  // Adjust height
+  width={50}  
+  height={50}
+  unoptimized={true}
 />
                             </i>
                             <div className="ContactDetailsBx">
@@ -233,8 +235,9 @@ const Page = () => {
                               <Image
   src="/Images/location-icon.png"
   alt="Location icon"
-  width={24}    // Adjust size as needed
-  height={24}
+  width={50}  
+  height={50}
+  unoptimized={true}
 />
                             </i>
                             <div className="ContactDetailsBx">
